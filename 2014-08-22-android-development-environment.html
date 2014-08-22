@@ -1,0 +1,228 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="Keywords" content="blog"/>
+    <meta name="Description" content="blog"/>
+    <title>Simple</title>
+    <link rel="shortcut icon" href="/static/favicon.png"/>
+    <link rel="stylesheet" type="text/css" href="/main.css" />
+</head>
+<body>
+<div class="main">
+    <div class="header">
+    	<ul id="pages">
+            <li><a href="/">home</a></li>
+            <li><a href="/#/tags">tags</a></li>
+            <li><a href="/#/archive">archive</a></li>
+    	</ul>
+    </div>
+	<div class="wrap-header">
+	<h1>
+    <a href="/" id="title"></a>
+	</h1>
+	</div>
+<div id="md" style="display: none;">
+<!-- markdown -->
+<link href="http://kevinburke.bitbucket.org/markdowncss/markdown.css" rel="stylesheet"></link>
+##一、 介绍
+
+------
+Android Studio是Google新发布的Android应用程序开发环境，Android Studio是基于IntelliJ IDEA开发而成的。在Android Studio开发环境中，Android开发者可以非常方便地调试Android应用程序，Android Studio不仅是Android开发的IDE集成环境，而且还有以下特点：
+
+- **构建方便** ：基于 Gradle 的构建支持
+
+- **强大的IDE** ：Android 专属的重构和快速修复
+
+- **功能丰富** ：提示工具(专属插件)以捕获性能、可用性、版本兼容性等问题
+
+- **编译简单** ：多版本多渠道超级方便，相信用过Eclipse的ANT构建环境的就知道多版本多渠道是有多麻烦，门槛有多高了，有了Gradle之后，多版本多渠道就是浮云了。（想知道ANT多渠道编译的可以看我这边博客[ANT多渠道打包](http://frank-zhu.github.io/2014-05-23-android-ant.html)）
+
+- **模板超多** ：基于模板的向导来生成常用的 Android应用设计和组件
+
+- **功能强大的布局编辑器** ：可以让你拖拉 UI控件并进行效果预览
+
+##二、文件准备
+
+
+1、[Android Studio下载安装](http://developer.android.com/sdk/installing/studio.html)可以去官网下载最新版本，现在是V0.8.6(注意选择适合自己的系统版本X86/64位)
+
+2、[JDK环境安装下载](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html)注意下载和自己系统匹配的版本，不然会导致AndroidStudio会找不到JDK环境的。
+
+3、一把好用的梯子。
+>在天想使用谷歌的服务，你懂得！所以一把好用的梯子会事半功倍，特别是对于第一次启动AndroidStudio的时候，等会你就直到有个好
+的梯子是多么的重要。什么，你说再哪里找梯子，这种问题不要问我，问了我也不会告诉你的~~~
+
+
+##三、软件安装
+
+1、先把之前下载好的JDK软件默认安装，一路NEXT，直到完成
+
+2、配置JAVA环境变量控制面板→系统→高级系统设置→“高级”下的“环境变量”：
+
+    * 我的电脑->属性->高级->环境变量
+    * 系统变量新建JAVA_HOME，变量值填写JDK的安装路径，在这里就填写“C:\Program Files\Java\jdk1.7.0_21”了
+	* 在系统变量里点击新建变量名填写CLASS_PATH，变量值填写‘.;%JAVA_HOME%\lib;%JAVA_HOME%\lib\tools.jar’；
+    * 在系统变量里找到Path变量，这是系统自带的，不用新建。双击Path，由于原来的变量值已经存在，故应在已有的变量后加上“;%CLASS_PATH%;%JAVA_HOME%;”注意前面的分号
+3、安装之前下载的最新版本AndroidStudio，如果你的系统是64位的那就一路NEXT默认安装就好，但是如果你的系统是
+32位的，那么很有可能会遇到下面的问题,下面给出解决方案：
+```
+都是针对执行studio.bat出现错误导致android studio运行不起来，最后都是异工同曲：
+
+解答下32位 win7系统的问题。
+在安装目录中找到bin下的studio.bat，用编辑打开studio.bat，第25到28行：
+
+SET JRE=%JDK%
+IF EXIST "%JRE%\jre" SET JRE=%JDK%\jre
+SET BITS=
+IF EXIST "%JRE%\lib\amd64" SET BITS=64
+可以看到里面设置软件支持系统位数是64位，而我自己所用电脑是32位的 jre/lib目录下只有i386文件，尝试把
+
+IF EXIST "%JRE%\lib\amd64" SET BITS=64
+改为
+IF EXIST "%JRE%\lib\i386" SET BITS=32
+对于32位的xp系统：
+SET BITS=   改为 SET BITS=32
+```
+4、
+
+<!-- markdown end -->
+</div>
+<div class="entry" id="main">
+<!-- content -->
+<p><link href="http://kevinburke.bitbucket.org/markdowncss/markdown.css" rel="stylesheet"></p>
+
+<h2 id="">一、 介绍</h2>
+
+<hr>
+
+<p>Android Studio是Google新发布的Android应用程序开发环境，Android Studio是基于IntelliJ IDEA开发而成的。在Android Studio开发环境中，Android开发者可以非常方便地调试Android应用程序，Android Studio不仅是Android开发的IDE集成环境，而且还有以下特点：</p>
+
+<ul>
+<li><p><strong>构建方便</strong> ：基于 Gradle 的构建支持</p></li>
+<li><p><strong>强大的IDE</strong> ：Android 专属的重构和快速修复</p></li>
+<li><p><strong>功能丰富</strong> ：提示工具(专属插件)以捕获性能、可用性、版本兼容性等问题</p></li>
+<li><p><strong>编译简单</strong> ：多版本多渠道超级方便，相信用过Eclipse的ANT构建环境的就知道多版本多渠道是有多麻烦，门槛有多高了，有了Gradle之后，多版本多渠道就是浮云了。（想知道ANT多渠道编译的可以看我这边博客<a href="http://frank-zhu.github.io/2014-05-23-android-ant.html">ANT多渠道打包</a>）</p></li>
+<li><p><strong>模板超多</strong> ：基于模板的向导来生成常用的 Android应用设计和组件</p></li>
+<li><p><strong>功能强大的布局编辑器</strong> ：可以让你拖拉 UI控件并进行效果预览</p></li>
+</ul>
+
+<h2 id="">二、文件准备</h2>
+
+<p>1、<a href="http://developer.android.com/sdk/installing/studio.html">Android Studio下载安装</a>可以去官网下载最新版本，现在是V0.8.6(注意选择适合自己的系统版本X86/64位)</p>
+
+<p>2、<a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html">JDK环境安装下载</a>注意下载和自己系统匹配的版本，不然会导致AndroidStudio会找不到JDK环境的。</p>
+
+<p>3、一把好用的梯子。</p>
+
+<blockquote>
+  <p>在天想使用谷歌的服务，你懂得！所以一把好用的梯子会事半功倍，特别是对于第一次启动AndroidStudio的时候，等会你就直到有个好
+  的梯子是多么的重要。什么，你说再哪里找梯子，这种问题不要问我，问了我也不会告诉你的~~~</p>
+</blockquote>
+
+<h2 id="">三、软件安装</h2>
+
+<p>1、先把之前下载好的JDK软件默认安装，一路NEXT，直到完成</p>
+
+<p>2、配置JAVA环境变量控制面板→系统→高级系统设置→“高级”下的“环境变量”：</p>
+
+<pre><code>* 我的电脑-&gt;属性-&gt;高级-&gt;环境变量
+* 系统变量新建JAVA_HOME，变量值填写JDK的安装路径，在这里就填写“C:\Program Files\Java\jdk1.7.0_21”了
+* 在系统变量里点击新建变量名填写CLASS_PATH，变量值填写‘.;%JAVA_HOME%\lib;%JAVA_HOME%\lib\tools.jar’；
+* 在系统变量里找到Path变量，这是系统自带的，不用新建。双击Path，由于原来的变量值已经存在，故应在已有的变量后加上“;%CLASS_PATH%;%JAVA_HOME%;”注意前面的分号
+</code></pre>
+
+<p>3、安装之前下载的最新版本AndroidStudio，如果你的系统是64位的那就一路NEXT默认安装就好，但是如果你的系统是
+32位的，那么很有可能会遇到下面的问题,下面给出解决方案：</p>
+
+<pre><code>都是针对执行studio.bat出现错误导致android studio运行不起来，最后都是异工同曲：
+
+解答下32位 win7系统的问题。
+在安装目录中找到bin下的studio.bat，用编辑打开studio.bat，第25到28行：
+
+SET JRE=%JDK%
+IF EXIST "%JRE%\jre" SET JRE=%JDK%\jre
+SET BITS=
+IF EXIST "%JRE%\lib\amd64" SET BITS=64
+可以看到里面设置软件支持系统位数是64位，而我自己所用电脑是32位的 jre/lib目录下只有i386文件，尝试把
+
+IF EXIST "%JRE%\lib\amd64" SET BITS=64
+改为
+IF EXIST "%JRE%\lib\i386" SET BITS=32
+对于32位的xp系统：
+SET BITS=   改为 SET BITS=32
+</code></pre>
+
+<p>4、</p>
+<!-- content end -->
+</div>
+<br>
+<br>
+    <div id="disqus_thread"></div>
+	<div class="footer">
+		<p>© Copyright 2014 by isnowfy, Designed by isnowfy</p>
+	</div>
+</div>
+<script src="main.js"></script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ["\\(", "\\)"]], processEscapes: true}});
+</script>
+<script id="content" type="text/mustache">
+    <h1>{{title}}</h1>
+    <div class="tag">
+    {{date}}
+    {{#tags}}
+    <a href="/#/tag/{{name}}">#{{name}}</a>
+    {{/tags}}
+    </div>
+</script>
+<script id="pagesTemplate" type="text/mustache">
+    {{#pages}}
+    <li>
+        <a href="{{path}}">{{title}}</a>
+    </li>
+    {{/pages}}
+</script>
+<script>
+$(document).ready(function() {
+    $.ajax({
+        url: "main.json",
+        type: "GET",
+        dataType: "json",
+        success: function(data) {
+            $("#title").html(data.name);
+            var pagesTemplate = Hogan.compile($("#pagesTemplate").html());
+            var pagesHtml = pagesTemplate.render({"pages": data.pages});
+            $("#pages").append(pagesHtml);
+            //path
+            var path = "2014-08-22-android-development-environment.html";
+            //path end
+            var now = 0;
+            for (var i = 0; i < data.posts.length; ++i)
+                if (path == data.posts[i].path)
+                    now = i;
+            var post = data.posts[now];
+            var tmp = post.tags.split(" ");
+            var tags = [];
+            for (var i = 0; i < tmp.length; ++i)
+                if (tmp[i].length > 0)
+                    tags.push({"name": tmp[i]});
+            var contentTemplate = Hogan.compile($("#content").html());
+            var contentHtml = contentTemplate.render({"title": post.title, "tags": tags, "date": post.date});
+            $("#main").prepend(contentHtml);
+            if (data.disqus_shortname.length > 0) {
+                var disqus_shortname = data.disqus_shortname;
+                (function() {
+                    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                })();
+            }
+        }
+    });
+});
+</script>
+</body>
+</html>
