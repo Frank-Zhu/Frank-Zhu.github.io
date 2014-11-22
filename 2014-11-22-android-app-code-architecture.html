@@ -25,48 +25,51 @@
 	</div>
 <div id="md" style="display: none;">
 <!-- markdown -->
-~~~~{python}
-    //View注解   代码地址-----> https://github.com/JakeWharton/butterknife
-    compile 'com.jakewharton:butterknife:6.0.0'
-    //图片加载  代码地址-----> https://github.com/square/picasso
-    compile 'com.squareup.picasso:picasso:2.4.0'
-    //API网络请求注解库    代码地址-----> https://github.com/square/retrofit
-    compile 'com.squareup.retrofit:retrofit:1.8.0'
-    //网络请求库 代码地址-----> https://github.com/square/okhttp
-    compile 'com.squareup.okhttp:okhttp:2.1.0'
-    compile 'com.squareup.okhttp:okhttp-urlconnection:2.0.0'
-    //消息通知数据更新（类似Broadcast）  代码地址-----> https://github.com/greenrobot/EventBus
-    compile 'de.greenrobot:eventbus:2.4.0'
-    //圆形头像  代码地址-----> https://github.com/hdodenhof/CircleImageView
-    compile 'de.hdodenhof:circleimageview:1.2.1'
-    //解析JSON数据  代码地址-----> https://code.google.com/p/google-gson/
-    compile 'com.google.code.gson:gson:2.3.1'
-    //弹出提示信息    代码地址-----> https://github.com/johnkil/Android-AppMsg
-    compile 'com.github.johnkil.android-appmsg:appmsg:1.2.0'
-~~~~
+今天刚好是我搞安卓开发两周年，写个博客记录下。
+###安卓APP代码架构搭建
+搞安卓开发两年了，一直都想整理一份自己平时开发用得到的代码作为其他项目开发的基础架构，之前也整理过一份，但是碍于自己当时技术的短板，那份代码已经有点落后了，所以今天还是重新整理一份相对合理一点的代码备份下，如果你对之前的版本感兴趣可以点这里--->[AndroidAppCodeFramework](https://github.com/Frank-Zhu/AndroidAppCodeFramework)
+* * *
+新的代码结构我会采用如下开源库
+
+*   网络通信将使用这些开源库 [Retrofit](https://github.com/square/retrofit)  [OKHTTP](https://github.com/square/okhttp)
+*   网络图片加载 [Picasso](https://github.com/square/picasso) / [UIL](https://github.com/nostra13/Android-Universal-Image-Loader)
+*   View注解 [Butterknife](https://github.com/JakeWharton/butterknife)
+*   DB会用CursorLoader配合contentProvider来做本地缓存
+*   JSON解析会采用[GSON](https://code.google.com/p/google-gson/)
+*   数据更新通知可能会采用[EventBus](https://github.com/greenrobot/EventBus)或者[otto](https://github.com/square/otto)代替broadcast
+*   消息提示[AppMsg](https://github.com/johnkil/Android-AppMsg)代替系统Toast
+*   圆形图片[CircleImageView](https://github.com/hdodenhof/CircleImageView)
+* * *
+
+最后给出代码的下载地址，欢迎 Star 和 Fork [GITHUB CODE 下载](https://github.com/Frank-Zhu/AppCodeArchitecture)
 <!-- markdown end -->
 </div>
 <div class="entry" id="main">
 <!-- content -->
-<p>~~~~{python}
-    //View注解   代码地址-----&gt; https://github.com/JakeWharton/butterknife
-    compile 'com.jakewharton:butterknife:6.0.0'
-    //图片加载  代码地址-----&gt; https://github.com/square/picasso
-    compile 'com.squareup.picasso:picasso:2.4.0'
-    //API网络请求注解库    代码地址-----&gt; https://github.com/square/retrofit
-    compile 'com.squareup.retrofit:retrofit:1.8.0'
-    //网络请求库 代码地址-----&gt; https://github.com/square/okhttp
-    compile 'com.squareup.okhttp:okhttp:2.1.0'
-    compile 'com.squareup.okhttp:okhttp-urlconnection:2.0.0'
-    //消息通知数据更新（类似Broadcast）  代码地址-----&gt; https://github.com/greenrobot/EventBus
-    compile 'de.greenrobot:eventbus:2.4.0'
-    //圆形头像  代码地址-----&gt; https://github.com/hdodenhof/CircleImageView
-    compile 'de.hdodenhof:circleimageview:1.2.1'
-    //解析JSON数据  代码地址-----&gt; https://code.google.com/p/google-gson/
-    compile 'com.google.code.gson:gson:2.3.1'
-    //弹出提示信息    代码地址-----&gt; https://github.com/johnkil/Android-AppMsg
-    compile 'com.github.johnkil.android-appmsg:appmsg:1.2.0'
-~~~~</p>
+<p>今天刚好是我搞安卓开发两周年，写个博客记录下。</p>
+
+<h3 id="app">安卓APP代码架构搭建</h3>
+
+<p>搞安卓开发两年了，一直都想整理一份自己平时开发用得到的代码作为其他项目开发的基础架构，之前也整理过一份，但是碍于自己当时技术的短板，那份代码已经有点落后了，所以今天还是重新整理一份相对合理一点的代码备份下，如果你对之前的版本感兴趣可以点这里---&gt;<a href="https://github.com/Frank-Zhu/AndroidAppCodeFramework">AndroidAppCodeFramework</a></p>
+
+<hr>
+
+<p>新的代码结构我会采用如下开源库</p>
+
+<ul>
+<li>网络通信将使用这些开源库 <a href="https://github.com/square/retrofit">Retrofit</a>  <a href="https://github.com/square/okhttp">OKHTTP</a></li>
+<li>网络图片加载 <a href="https://github.com/square/picasso">Picasso</a> / <a href="https://github.com/nostra13/Android-Universal-Image-Loader">UIL</a></li>
+<li>View注解 <a href="https://github.com/JakeWharton/butterknife">Butterknife</a></li>
+<li>DB会用CursorLoader配合contentProvider来做本地缓存</li>
+<li>JSON解析会采用<a href="https://code.google.com/p/google-gson/">GSON</a></li>
+<li>数据更新通知可能会采用<a href="https://github.com/greenrobot/EventBus">EventBus</a>或者<a href="https://github.com/square/otto">otto</a>代替broadcast</li>
+<li>消息提示<a href="https://github.com/johnkil/Android-AppMsg">AppMsg</a>代替系统Toast</li>
+<li>圆形图片<a href="https://github.com/hdodenhof/CircleImageView">CircleImageView</a></li>
+</ul>
+
+<hr>
+
+<p>最后给出代码的下载地址，欢迎 Star 和 Fork <a href="https://github.com/Frank-Zhu/AppCodeArchitecture">GITHUB CODE 下载</a></p>
 <!-- content end -->
 </div>
 <br>
