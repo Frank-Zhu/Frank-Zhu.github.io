@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="Keywords" content="blog"/>
     <meta name="Description" content="blog"/>
-    <title>Frank-Zhu</title>
+    <title>Simple</title>
     <link rel="shortcut icon" href="/static/favicon.png"/>
     <link rel="stylesheet" type="text/css" href="/main.css" />
 </head>
@@ -88,12 +88,183 @@ keytool -list -keystore E:\ssl\server.keystore -storepass 123456
 以下只给出Android端的请求，具体服务器端的配置可以参考这篇博客-->[Java Tomcat SSL 服务端/客户端双向认证（一）](http://www.blogjava.net/icewee/archive/2012/06/04/379947.html)
 ##四、Android端SSL认证请求
 >一般客户端验证SSL有两种方式，一种是通过SSLSocketFactory方式创建，需要设置域名及端口号(适应于HttpClient请求方式)，一种是通过SSLContext方式创建(适用于HttpsURLConnection请求方式).
+
+1、下面给出SslSocketFactory方式进行SSL认证的客户端代码
+```java
+	private static final String KEY_STORE_TYPE_BKS = "bks";//证书类型 固定值
+    private static final String KEY_STORE_TYPE_P12 = "PKCS12";//证书类型 固定值
+
+    private static final String KEY_STORE_CLIENT_PATH = "client.p12";//客户端要给服务器端认证的证书
+    private static final String KEY_STORE_TRUST_PATH = "client.truststore";//客户端验证服务器端的证书库
+    private static final String KEY_STORE_PASSWORD = "123456";// 客户端证书密码
+    private static final String KEY_STORE_TRUST_PASSWORD = "123456";//客户端证书库密码
+
+	/**
+     * 获取SslSocketFactory
+     *
+     * @param context 上下文
+     * @return SSLSocketFactory
+     */
+    public static SSLSocketFactory getSslSocketFactory(Context context) {
+        try {
+            // 服务器端需要验证的客户端证书
+            KeyStore keyStore = KeyStore.getInstance(KEY_STORE_TYPE_P12);
+            // 客户端信任的服务器端证书
+            KeyStore trustStore = KeyStore.getInstance(KEY_STORE_TYPE_BKS);
+
+            InputStream ksIn = context.getResources().getAssets().open(KEY_STORE_CLIENT_PATH);
+            InputStream tsIn = context.getResources().getAssets().open(KEY_STORE_TRUST_PATH);
+            try {
+                keyStore.load(ksIn, KEY_STORE_PASSWORD.toCharArray());
+                trustStore.load(tsIn, KEY_STORE_TRUST_PASSWORD.toCharArray());
+            } catch (Exception e) {
+                e.printStackTrace();
+            } finally {
+                try {
+                    ksIn.close();
+                } catch (Exception ignore) {
+                }
+                try {
+                    tsIn.close();
+                } catch (Exception ignore) {
+                }
+            }
+            return new SSLSocketFactory(keyStore, KEY_STORE_PASSWORD, trustStore);
+        } catch (KeyManagementException | UnrecoverableKeyException | KeyStoreException | FileNotFoundException | NoSuchAlgorithmException | ClientProtocolException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+    
+    /**
+     * 获取SSL认证需要的HttpClient
+     *
+     * @param context 上下文
+     * @param port    端口号
+     * @return HttpClient
+     */
+    public static HttpClient getSslSocketFactoryHttp(Context context, int port) {
+        HttpClient httpsClient = new DefaultHttpClient();
+        SSLSocketFactory sslSocketFactory = getSslSocketFactory(context);
+        if (sslSocketFactory != null) {
+            Scheme sch = new Scheme("https", sslSocketFactory, port);
+            httpsClient.getConnectionManager().getSchemeRegistry().register(sch);
+        }
+        return httpsClient;
+    }
+```
+
+2、下面给出SSLContext方式进行SSL认证的客户端代码
+
+```java
+
+	private static final String KEY_STORE_TYPE_BKS = "bks";//证书类型 固定值
+    private static final String KEY_STORE_TYPE_P12 = "PKCS12";//证书类型 固定值
+
+    private static final String KEY_STORE_CLIENT_PATH = "client.p12";//客户端要给服务器端认证的证书
+    private static final String KEY_STORE_TRUST_PATH = "client.truststore";//客户端验证服务器端的证书库
+    private static final String KEY_STORE_PASSWORD = "123456";// 客户端证书密码
+    private static final String KEY_STORE_TRUST_PASSWORD = "123456";//客户端证书库密码
+    
+	/**
+     * 获取SSLContext
+     *
+     * @param context 上下文
+     * @return SSLContext
+     */
+    private static SSLContext getSSLContext(Context context) {
+        try {
+            // 服务器端需要验证的客户端证书
+            KeyStore keyStore = KeyStore.getInstance(KEY_STORE_TYPE_P12);
+            // 客户端信任的服务器端证书
+            KeyStore trustStore = KeyStore.getInstance(KEY_STORE_TYPE_BKS);
+
+            InputStream ksIn = context.getResources().getAssets().open(KEY_STORE_CLIENT_PATH);
+            InputStream tsIn = context.getResources().getAssets().open(KEY_STORE_TRUST_PATH);
+            try {
+                keyStore.load(ksIn, KEY_STORE_PASSWORD.toCharArray());
+                trustStore.load(tsIn, KEY_STORE_TRUST_PASSWORD.toCharArray());
+            } catch (Exception e) {
+                e.printStackTrace();
+            } finally {
+                try {
+                    ksIn.close();
+                } catch (Exception ignore) {
+                }
+                try {
+                    tsIn.close();
+                } catch (Exception ignore) {
+                }
+            }
+            SSLContext sslContext = SSLContext.getInstance("TLS");
+            TrustManagerFactory trustManagerFactory = TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm());
+            trustManagerFactory.init(trustStore);
+            KeyManagerFactory keyManagerFactory = KeyManagerFactory.getInstance("X509");
+            keyManagerFactory.init(keyStore, KEY_STORE_PASSWORD.toCharArray());
+            sslContext.init(keyManagerFactory.getKeyManagers(), trustManagerFactory.getTrustManagers(), null);
+            return sslContext;
+        } catch (Exception e) {
+            Log.e("tag", e.getMessage(), e);
+        }
+        return null;
+    }
+    
+    /**
+     * 获取SSL认证需要的HttpClient
+     *
+     * @param context 上下文
+     * @return OkHttpClient
+     */
+    public static OkHttpClient getSSLContextHttp(Context context) {
+        OkHttpClient client = new OkHttpClient();
+        SSLContext sslContext = getSSLContext(context);
+        if (sslContext != null) {
+            client.setSslSocketFactory(sslContext.getSocketFactory());
+        }
+        return client;
+    }
+    
+    /**
+     * 获取HttpsURLConnection
+     *
+     * @param context 上下文
+     * @param url     连接url
+     * @param method  请求方式
+     * @return HttpsURLConnection
+     */
+    public static HttpsURLConnection getHttpsURLConnection(Context context, String url, String method) {
+        URL u;
+        HttpsURLConnection connection = null;
+        try {
+            SSLContext sslContext = getSSLContext(context);
+            if (sslContext != null) {
+                u = new URL(url);
+                connection = (HttpsURLConnection) u.openConnection();
+                connection.setRequestMethod(method);//"POST" "GET"
+                connection.setDoOutput(true);
+                connection.setDoInput(true);
+                connection.setUseCaches(false);
+                connection.setRequestProperty("Content-Type", "binary/octet-stream");
+                connection.setSSLSocketFactory(sslContext.getSocketFactory());
+                connection.setConnectTimeout(30000);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return connection;
+    }
+```
+
+这里还没有给出Webview进行HTTPS请求的方式，正在研究中，后续有了再来更新，这里需要注意一下的就是SSLContext的**默认端口是443端口，这点需要注意一下**。
+
+这里给出全部代码链接-->[HttpClientSslHelper.java](https://gist.github.com/Frank-Zhu/41e21a00df26d63cd38d)
+
 <!-- markdown end -->
 </div>
 <div class="entry" id="main">
 <!-- content -->
-<h1 id="androidhttpsssl">Android HTTPS SSL双向验证</h1>
-
 <blockquote>
   <p>由于公司项目需要，为了保证服务器数据安全，保证接口不暴露给第三方，要求我们客户端接口全部采用HTTPS的SSL验证请求，所以才有了以下这篇博客的介绍。</p>
 </blockquote>
@@ -175,6 +346,176 @@ keytool -list -keystore E:\ssl\server.keystore -storepass 123456
 <blockquote>
   <p>一般客户端验证SSL有两种方式，一种是通过SSLSocketFactory方式创建，需要设置域名及端口号(适应于HttpClient请求方式)，一种是通过SSLContext方式创建(适用于HttpsURLConnection请求方式).</p>
 </blockquote>
+
+<p>1、下面给出SslSocketFactory方式进行SSL认证的客户端代码</p>
+
+<pre><code class="java">    private static final String KEY_STORE_TYPE_BKS = "bks";//证书类型 固定值
+    private static final String KEY_STORE_TYPE_P12 = "PKCS12";//证书类型 固定值
+
+    private static final String KEY_STORE_CLIENT_PATH = "client.p12";//客户端要给服务器端认证的证书
+    private static final String KEY_STORE_TRUST_PATH = "client.truststore";//客户端验证服务器端的证书库
+    private static final String KEY_STORE_PASSWORD = "123456";// 客户端证书密码
+    private static final String KEY_STORE_TRUST_PASSWORD = "123456";//客户端证书库密码
+
+    /**
+     * 获取SslSocketFactory
+     *
+     * @param context 上下文
+     * @return SSLSocketFactory
+     */
+    public static SSLSocketFactory getSslSocketFactory(Context context) {
+        try {
+            // 服务器端需要验证的客户端证书
+            KeyStore keyStore = KeyStore.getInstance(KEY_STORE_TYPE_P12);
+            // 客户端信任的服务器端证书
+            KeyStore trustStore = KeyStore.getInstance(KEY_STORE_TYPE_BKS);
+
+            InputStream ksIn = context.getResources().getAssets().open(KEY_STORE_CLIENT_PATH);
+            InputStream tsIn = context.getResources().getAssets().open(KEY_STORE_TRUST_PATH);
+            try {
+                keyStore.load(ksIn, KEY_STORE_PASSWORD.toCharArray());
+                trustStore.load(tsIn, KEY_STORE_TRUST_PASSWORD.toCharArray());
+            } catch (Exception e) {
+                e.printStackTrace();
+            } finally {
+                try {
+                    ksIn.close();
+                } catch (Exception ignore) {
+                }
+                try {
+                    tsIn.close();
+                } catch (Exception ignore) {
+                }
+            }
+            return new SSLSocketFactory(keyStore, KEY_STORE_PASSWORD, trustStore);
+        } catch (KeyManagementException | UnrecoverableKeyException | KeyStoreException | FileNotFoundException | NoSuchAlgorithmException | ClientProtocolException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    /**
+     * 获取SSL认证需要的HttpClient
+     *
+     * @param context 上下文
+     * @param port    端口号
+     * @return HttpClient
+     */
+    public static HttpClient getSslSocketFactoryHttp(Context context, int port) {
+        HttpClient httpsClient = new DefaultHttpClient();
+        SSLSocketFactory sslSocketFactory = getSslSocketFactory(context);
+        if (sslSocketFactory != null) {
+            Scheme sch = new Scheme("https", sslSocketFactory, port);
+            httpsClient.getConnectionManager().getSchemeRegistry().register(sch);
+        }
+        return httpsClient;
+    }
+</code></pre>
+
+<p>2、下面给出SSLContext方式进行SSL认证的客户端代码</p>
+
+<pre><code class="java">    private static final String KEY_STORE_TYPE_BKS = "bks";//证书类型 固定值
+    private static final String KEY_STORE_TYPE_P12 = "PKCS12";//证书类型 固定值
+
+    private static final String KEY_STORE_CLIENT_PATH = "client.p12";//客户端要给服务器端认证的证书
+    private static final String KEY_STORE_TRUST_PATH = "client.truststore";//客户端验证服务器端的证书库
+    private static final String KEY_STORE_PASSWORD = "123456";// 客户端证书密码
+    private static final String KEY_STORE_TRUST_PASSWORD = "123456";//客户端证书库密码
+
+    /**
+     * 获取SSLContext
+     *
+     * @param context 上下文
+     * @return SSLContext
+     */
+    private static SSLContext getSSLContext(Context context) {
+        try {
+            // 服务器端需要验证的客户端证书
+            KeyStore keyStore = KeyStore.getInstance(KEY_STORE_TYPE_P12);
+            // 客户端信任的服务器端证书
+            KeyStore trustStore = KeyStore.getInstance(KEY_STORE_TYPE_BKS);
+
+            InputStream ksIn = context.getResources().getAssets().open(KEY_STORE_CLIENT_PATH);
+            InputStream tsIn = context.getResources().getAssets().open(KEY_STORE_TRUST_PATH);
+            try {
+                keyStore.load(ksIn, KEY_STORE_PASSWORD.toCharArray());
+                trustStore.load(tsIn, KEY_STORE_TRUST_PASSWORD.toCharArray());
+            } catch (Exception e) {
+                e.printStackTrace();
+            } finally {
+                try {
+                    ksIn.close();
+                } catch (Exception ignore) {
+                }
+                try {
+                    tsIn.close();
+                } catch (Exception ignore) {
+                }
+            }
+            SSLContext sslContext = SSLContext.getInstance("TLS");
+            TrustManagerFactory trustManagerFactory = TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm());
+            trustManagerFactory.init(trustStore);
+            KeyManagerFactory keyManagerFactory = KeyManagerFactory.getInstance("X509");
+            keyManagerFactory.init(keyStore, KEY_STORE_PASSWORD.toCharArray());
+            sslContext.init(keyManagerFactory.getKeyManagers(), trustManagerFactory.getTrustManagers(), null);
+            return sslContext;
+        } catch (Exception e) {
+            Log.e("tag", e.getMessage(), e);
+        }
+        return null;
+    }
+
+    /**
+     * 获取SSL认证需要的HttpClient
+     *
+     * @param context 上下文
+     * @return OkHttpClient
+     */
+    public static OkHttpClient getSSLContextHttp(Context context) {
+        OkHttpClient client = new OkHttpClient();
+        SSLContext sslContext = getSSLContext(context);
+        if (sslContext != null) {
+            client.setSslSocketFactory(sslContext.getSocketFactory());
+        }
+        return client;
+    }
+
+    /**
+     * 获取HttpsURLConnection
+     *
+     * @param context 上下文
+     * @param url     连接url
+     * @param method  请求方式
+     * @return HttpsURLConnection
+     */
+    public static HttpsURLConnection getHttpsURLConnection(Context context, String url, String method) {
+        URL u;
+        HttpsURLConnection connection = null;
+        try {
+            SSLContext sslContext = getSSLContext(context);
+            if (sslContext != null) {
+                u = new URL(url);
+                connection = (HttpsURLConnection) u.openConnection();
+                connection.setRequestMethod(method);//"POST" "GET"
+                connection.setDoOutput(true);
+                connection.setDoInput(true);
+                connection.setUseCaches(false);
+                connection.setRequestProperty("Content-Type", "binary/octet-stream");
+                connection.setSSLSocketFactory(sslContext.getSocketFactory());
+                connection.setConnectTimeout(30000);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return connection;
+    }
+</code></pre>
+
+<p>这里还没有给出Webview进行HTTPS请求的方式，正在研究中，后续有了再来更新，这里需要注意一下的就是SSLContext的<strong>默认端口是443端口，这点需要注意一下</strong>。</p>
+
+<p>这里给出全部代码链接--&gt;<a href="https://gist.github.com/Frank-Zhu/41e21a00df26d63cd38d">HttpClientSslHelper.java</a></p>
 <!-- content end -->
 </div>
 <br>
