@@ -76,14 +76,20 @@ a strong {
 /* `:focus` is linked to `:hover` for basic accessibility */
 a:hover,
 a:focus {
-  text-decoration: underline;
-}
+  color: #006699;
+  -o-transition: .3s;
+  -ms-transition: .3s;
+  -moz-transition: .3s;
+  -webkit-transition: .3s; }
 
 /* Headings */
 h1, h2, h3, h4, h5, h6 {
-  margin-bottom: .5rem;
-  font-weight: bold;
+  font-family: "Fjalla One", serif;
+  margin-top: .8rem;
+  margin-bottom: .6rem;
+  font-weight: normal;
   line-height: 1.25;
+  letter-spacing: -.03em;
   color: #313131;
   text-rendering: optimizeLegibility;
 }
@@ -148,13 +154,17 @@ abbr[title] {
 }
 
 /* Code */
-code,
 pre {
   font-family: Menlo, Monaco, "Courier New", monospace;
+  overflow: auto;
+  padding: 1em 2.5%;
+  
+ 
 }
 code {
+  font-family: Menlo, Monaco, "Courier New", monospace;
   padding: .25em .5em;
-  font-size: 85%;
+  font-size: 80%;
   color: #bf616a;
   background-color: #f9f9f9;
   border-radius: 3px;
@@ -167,10 +177,10 @@ pre {
   font-size: .8rem;
   line-height: 1.4;
   white-space: pre;
-  white-space: pre-wrap;
-  word-break: break-all;
-  word-wrap: break-word;
-  background-color: #f9f9f9;
+  overflow: auto;
+  background-color: #EEE;
+  border: 1px solid #CCC;
+   border-radius: 3px;
 }
 pre code {
   padding: 0;
@@ -286,7 +296,7 @@ tbody tr:nth-child(odd) th {
  */
 
 .container {
-  max-width: 38rem;
+  max-width: 44rem;
   padding-left:  1rem;
   padding-right: 1rem;
   margin-left:  auto;
@@ -339,6 +349,13 @@ tbody tr:nth-child(odd) th {
 .post-title a {
   color: #303030;
 }
+.post-title a:hover, a:focus {
+  color: #006699;
+  -o-transition: .5s;
+  -ms-transition: .5s;
+  -moz-transition: .5s;
+  -webkit-transition: .5s; }
+
 .page-title,
 .post-title {
   margin-top: 0;
@@ -387,9 +404,7 @@ tbody tr:nth-child(odd) th {
 
 .pagination {
   overflow: hidden; /* clearfix */
-  margin-left: -1rem;
-  margin-right: -1rem;
-  font-family: "PT Sans", Helvetica, Arial, sans-serif;
+  margin: 3rem 0;
   color: #ccc;
   text-align: center;
 }
@@ -399,9 +414,8 @@ tbody tr:nth-child(odd) th {
   display: block;
   padding: 1rem;
   border: 1px solid #eee;
-}
-.pagination-item:first-child {
-  margin-bottom: -1px;
+  float: left;
+  width: 47%;
 }
 
 /* Only provide a hover state for linked pagination items */
@@ -409,22 +423,15 @@ a.pagination-item:hover {
   background-color: #f5f5f5;
 }
 
-@media (min-width: 30em) {
-  .pagination {
-    margin: 3rem 0;
-  }
-  .pagination-item {
-    float: left;
-    width: 50%;
-  }
-  .pagination-item:first-child {
-    margin-bottom: 0;
-    border-top-left-radius:    4px;
-    border-bottom-left-radius: 4px;
-  }
-  .pagination-item:last-child {
-    margin-left: -1px;
-    border-top-right-radius:    4px;
-    border-bottom-right-radius: 4px;
-  }
+.pagination-item:first-child {
+  margin-bottom: 0;
+  margin-left: 3%;
+  border-top-left-radius:    4px;
+  border-bottom-left-radius: 4px;
+}
+.pagination-item:last-child {
+  margin-left: -1px;
+  margin-right: 3%;
+  border-top-right-radius:    4px;
+  border-bottom-right-radius: 4px;
 }

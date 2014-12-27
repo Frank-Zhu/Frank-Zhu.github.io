@@ -8,11 +8,42 @@
 
   <title>
     {% if page.title == "Home" %}
-      {{ site.title }} &middot; {{ site.tagline }}
+      {{ site.title }}
     {% else %}
       {{ page.title }} &middot; {{ site.title }}
     {% endif %}
   </title>
+
+<meta name="twitter:site" content="{{ site.twitter }}">
+  <meta property="og:type" content="article">
+  
+  {% if page.cover_image %}
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image:src" content="{{ site.url }}{{ page.cover_image }}">
+  <meta name="og:image" content="{{ site.url }}{{ page.cover_image }}">
+  {% else %}
+  <meta name="twitter:card" content="summary">
+  {% endif %}
+  
+  {% if page.title == "Home" %}
+  <meta property="og:title" content="{{ site.title }}">
+  <meta property="twitter:title" content="{{ site.title }}">
+  {% else %}
+  <meta property="og:title" content="{{ page.title }}">
+  <meta property="twitter:title" content="{{ page.title }}">
+  {% endif %}
+
+  {% if page.excerpt %}
+  <meta name="twitter:description" content="{{ page.excerpt | strip_html }}">
+  <meta property="og:description" content="{{ page.excerpt | strip_html }}">
+  <meta name="description" content="{{ page.excerpt | strip_html }}">
+  {% else %}
+  <meta name="twitter:description" content="{{ site.description }}">
+  <meta property="og:description" content="{{ site.description }}">
+  <meta property="description" content="{{ site.description }}">
+  {% endif %}
+
+ <meta name="theme-color" content="#303f9f">
 
   <!-- CSS -->
   <link rel="stylesheet" href="{{ site.baseurl }}public/css/poole.css">
@@ -20,9 +51,19 @@
   <link rel="stylesheet" href="{{ site.baseurl }}public/css/hyde.css">
   <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
 
+  <!-- CSS -->
+  <link rel="stylesheet" href="{{ site.baseurl }}public/css/site.css">
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:400,700|Fjalla+One">
+
   <!-- Icons -->
-  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{ site.baseurl }}public/apple-touch-icon-144-precomposed.png">
-                                 <link rel="shortcut icon" href="{{ site.baseurl }}public/favicon.ico">
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/content/apple-touch-icon-144x144.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="152x152" href="/content/apple-touch-icon-152x152.png" />
+  <link rel="icon" type="image/png" href="/content/favicon-196x196.png" sizes="196x196" />
+  <link rel="icon" type="image/png" href="/content/favicon-32x32.png" sizes="32x32" />
+  <link rel="icon" type="image/png" href="/content/favicon-16x16.png" sizes="16x16" />
+  <meta name="application-name" content="Frank Zhu"/>
+  <meta name="msapplication-TileColor" content="#303f9f" />
+  <meta name="msapplication-TileImage" content="/content/mstile-144x144.png" />
 
   <!-- RSS -->
   <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
