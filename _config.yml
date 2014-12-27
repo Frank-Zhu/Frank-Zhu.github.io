@@ -7,20 +7,30 @@ permalink:        pretty
 relative_permalinks: true
 
 # Setup
-title:            Hyde
-tagline:          'A Jekyll theme'
-description:      'A brazen two-column <a href="http://jekyllrb.com" target="_blank">Jekyll</a> theme that pairs a prominent sidebar with uncomplicated content. Made by <a href="https://twitter.com/mdo" target="_blank">@mdo</a>.'
-url:              http://hyde.getpoole.com
+title:            Frank-Zhu
+description:      '爱生活、爱分享、想做一个真正属于自己的APP'
+url:              http://frank-zhu.github.io/
 baseurl:          /
+logo:             /content/images/me.png
 
 author:
-  name:           'Mark Otto'
-  url:            https://twitter.com/mdo
+  name:           'Frank Zhu'
+  url:            https://github.com/Frank-Zhu
 
 paginate:         5
 
-# Custom vars
-version:          2.1.0
+
+disqus_shortname: frank
 
 github:
-  repo:           https://github.com/poole/hyde
+  repo:           https://github.com/Frank-Zhu/Frank-Zhu.github.io
+
+gems:
+  - jekyll-sitemap
+
+G+: '@https://plus.google.com/u/0/108962319538026346008/posts/p/pub'
+QQ: '@812356085'
+
+kramdown:
+  # Enable GitHub Flavored Markdown (fenced code blocks)
+  input: GFM
