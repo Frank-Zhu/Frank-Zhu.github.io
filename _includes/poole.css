@@ -190,12 +190,20 @@ pre code {
 }
 
 /* Pygments via Jekyll */
-.highlight {
+/*.highlight {
   margin-bottom: 1rem;
   border-radius: 4px;
 }
 .highlight pre {
   margin-bottom: 0;
+}*/
+
+/* 自定义高亮样式 */
+.highlight pre,code {
+  font-size: 15px;
+  background-color: #002B36;
+  color:#93A1A1;
+  border-radius: 4px;
 }
 
 /* Gist via GitHub Pages */
@@ -207,7 +215,7 @@ pre code {
 }
 .gist pre {
   padding: 0;
-  background-color: transparent;
+  background-color: #002B36;
 }
 .gist .gist-file .gist-data {
   font-size: .8rem !important;
@@ -216,7 +224,7 @@ pre code {
 .gist code {
   padding: 0;
   color: inherit;
-  background-color: transparent;
+  background-color: #002B36;
   border-radius: 0;
 }
 

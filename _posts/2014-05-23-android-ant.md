@@ -316,12 +316,12 @@ test--
 
 6、打开CMD，然后CD到项目根路径下，运行ant deploy即可。**注意在运行之前要注意先clean一下项目，不然可能会报错误,切记！！！！**
 
-```
+{% gist code %}
 BUILD FAILED
 F:\Test\Test\build.xml:113: The following error occurred while executing this line:
 F:\Test\Test\build.xml:139: The following error occurred while executing this line:
 
-```
+{% endgist code %}
 
 7、如果你看到BUILD SUCCESS，那么恭喜你，多渠道打包编译成功了，去输出目录查看一下APK文件吧！
 
