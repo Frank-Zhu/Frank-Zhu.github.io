@@ -1,4 +1,7 @@
-<link href="http://kevinburke.bitbucket.org/markdowncss/markdown.css" rel="stylesheet"></link>
+---
+layout: post
+title: Android ANT多渠道打包
+---
 
 在没用AndroidStudio的Gradle构建项目之前，多渠道打包一般都是基于ANT构建，所以在此记录一下，以供查阅！
 

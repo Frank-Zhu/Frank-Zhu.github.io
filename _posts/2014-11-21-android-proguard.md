@@ -1,3 +1,8 @@
+---
+layout: post
+title: 编写Android Proguard File
+---
+
 ###ProGuard的常用语法
 ```
 -libraryjars class_path 应用的依赖包，如android-support-v4

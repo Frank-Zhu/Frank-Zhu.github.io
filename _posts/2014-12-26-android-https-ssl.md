@@ -1,3 +1,7 @@
+---
+layout: post
+title: Android HTTPS SSL双向验证
+---
 >由于公司项目需要，为了保证服务器数据安全，保证接口不暴露给第三方，要求我们客户端接口全部采用HTTPS的SSL验证请求，所以才有了以下这篇博客的介绍。
 
 ##一、HTTPS和HTTP的区别

@@ -1,3 +1,8 @@
+---
+layout: post
+title: Android开发环境搭建(AndoirdStudio/IDEA)
+---
+
 ##一、 介绍
 
 ------
