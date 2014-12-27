@@ -1,6 +1,8 @@
 ---
 layout: post
-title: Android ANT多渠道打包
+title: "Android ANT多渠道打包"
+tags: [Ant]
+categories: [Android]
 ---
 
 在没用AndroidStudio的Gradle构建项目之前，多渠道打包一般都是基于ANT构建，所以在此记录一下，以供查阅！
@@ -92,7 +94,7 @@ market_channels=Gfan,3G,360,AndMarket,AnZi
 
 3、编辑custom_rules.xml文件
 
-```
+{% highlight ruby %}
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="custom_rules" >
     <taskdef resource="net/sf/antcontrib/antcontrib.properties" >
@@ -127,11 +129,11 @@ market_channels=Gfan,3G,360,AndMarket,AnZi
     </target>
 </project>
 
-```
+{% endhighlight %}
 
 4、编辑最终的build.xml文件，这个是才是循环打包的重点
 
-
+{% highlight ruby %}
 	<?xml version="1.0" encoding="UTF-8"?> <!-- 项目名称test,可用全局替换为当前项目名称 -->
 	<project
     	name="test"
@@ -297,7 +299,7 @@ market_channels=Gfan,3G,360,AndMarket,AnZi
     </target>
 	</project>
 
-
+{% endhighlight %}
 5、把以上4个文件拷贝到项目根目录下，目录结构如下
 
 ```
