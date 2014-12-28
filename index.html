@@ -25,7 +25,7 @@ title: Home
     </div>
     {% endif %}  
 
-    {{ post.content | strip_html | truncatewords:30 }}
+    {{ post.content | strip_html | truncatewords:10 }}
   </div>
   {% endfor %}
 </div>

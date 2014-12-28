@@ -36,6 +36,7 @@ C:\Users\ZhuWenWu>ant build
 Buildfile: build.xml does not exist!
 Build failed
 ```
+
 4、ANT要支持循环打包需要安装扩展包ant-contrib，将之前解压得到的ant-contrib-1.0b3.jar文件复制到你ANT目录下得lib文件夹下。如：**D:\Ant\lib**
 >做完以上4步，ANT多渠道打包环境就基本配置好了，接下来就是真正的要来处理循环打包了。
 
@@ -316,12 +317,11 @@ test--
 
 6、打开CMD，然后CD到项目根路径下，运行ant deploy即可。**注意在运行之前要注意先clean一下项目，不然可能会报错误,切记！！！！**
 
-{% gist code %}
+```
 BUILD FAILED
 F:\Test\Test\build.xml:113: The following error occurred while executing this line:
 F:\Test\Test\build.xml:139: The following error occurred while executing this line:
-
-{% endgist code %}
+```
 
 7、如果你看到BUILD SUCCESS，那么恭喜你，多渠道打包编译成功了，去输出目录查看一下APK文件吧！
 

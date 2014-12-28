@@ -1,6 +1,8 @@
 ---
 layout: post
 title: Android App 代码架构
+tags: [code]
+categories: [android]
 ---
 
 ###安卓APP代码架构搭建
@@ -24,10 +26,12 @@ title: Android App 代码架构
 *  app  主要放APP的一些常量及配置文件
 *  base 主要放activity及fragment的基类文件
 *  dao  主要放数据库文件
+
 ```
    database  数据库的表
    datahelper  数据库数据操作的帮助类，每一张表派生出一个帮助类操作表
 ```
+
 *  fragment 主要放不同页面的fragment文件
 *  log    APP打LOG的帮助类，可以通过开关关闭LOG的输出，也可以通过设置Gradle的编译混淆方式直接移除函数也可以。
 *  model  数据模型类文件夹

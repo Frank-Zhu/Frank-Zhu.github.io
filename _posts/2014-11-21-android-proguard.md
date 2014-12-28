@@ -1,10 +1,13 @@
 ---
 layout: post
 title: 编写Android Proguard File
+tags: [proguard build]
+categories: [android]
 ---
 
 ###ProGuard的常用语法
-```
+
+{% highlight ruby %}
 -libraryjars class_path 应用的依赖包，如android-support-v4
 -keep [,modifier,...] class_specification 不混淆某些类
 -keepclassmembers [,modifier,...] class_specification 不混淆类的成员
@@ -14,10 +17,12 @@ title: 编写Android Proguard File
 -keepclasseswithmembernames class_specification 不混淆类及其成员名
 -assumenosideeffects class_specification 假设调用不产生任何影响，在proguard代码优化时会将该调用remove掉。如system.out.println和Log.v等等
 -dontwarn [class_filter] 不提示warnning
-```
+{% endhighlight %}
+
 [proguard更多语法](http://proguard.sourceforge.net/index.html#manual/usage.html)
 
 ###注意下列类不能进行混淆：
+
 ```
     (1)、反射用到的类
     (2)、在AndroidManifest中配置的类(Activity、Service等的子类及Framework类默认不会进行混淆)
@@ -25,6 +30,7 @@ title: 编写Android Proguard File
 ```
 
 ###常用编写
+
 ```java
 # Obfuscation parameters:
 #-dontobfuscate
@@ -60,11 +66,13 @@ title: 编写Android Proguard File
 }
 
 ```
+
 一般填上上面的即可混淆了，不过大部分代码都会被混淆掉，在编译的时候可能会报错，由于现在大部分都会用到
 比较多的开源库，一般开源库会给出混淆的选项，只要添加给出的混淆选项即可。只需要注意两点即可，一就是用到
 GSON之类的库的时候需要保证自己的数据实体结构类不被混淆，不然会无法自动解析。二就是如果有用到WEBView的JS调用也需要保证写的接口方法不会混淆，下面给出一些常用库文件的混淆代码规则编写实例。
 [GSON Proguard  Example](https://code.google.com/p/google-gson/source/browse/trunk/examples/android-proguard-example/proguard.cfg?r=878)
-```
+
+{% highlight ruby %}
 # Keep Actionbarsherlock
 -dontwarn com.actionbarsherlock.**
 -keepattributes *Annotation*
@@ -145,9 +153,11 @@ GSON之类的库的时候需要保证自己的数据实体结构类不被混淆�
    public *;
 }
 -keep class com.xxx.xxx.** { *; }#保持WEB接口不被混淆 此处xxx.xxx是自己接口的包名
-```
+{% endhighlight %}
+
 然后就是gradle的设置了
-```
+
+{% highlight ruby %}
     buildTypes {
         release {
             runProguard false
@@ -162,6 +172,6 @@ GSON之类的库的时候需要保证自己的数据实体结构类不被混淆�
     packagingOptions {
         exclude 'META-INF/services/javax.annotation.processing.Processor'
     }
-```
+{% endhighlight %}
 
 一般用以上的配置就可以了，如果编译的时候还报错误就根据上面的规则一个一个解决就可以。

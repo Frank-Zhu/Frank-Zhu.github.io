@@ -1,6 +1,8 @@
 ---
 layout: post
 title: Android开发环境搭建(AndoirdStudio/IDEA)
+tags: [tools]
+categories: [android]
 ---
 
 ##一、 介绍
@@ -43,6 +45,7 @@ Android Studio是Google新发布的Android应用程序开发环境，Android Stu
     * 在系统变量里找到Path变量，这是系统自带的，不用新建。双击Path，由于原来的变量值已经存在，故应在已有的变量后加上“;%CLASS_PATH%;%JAVA_HOME%;”注意前面的分号
 3、安装之前下载的最新版本AndroidStudio，如果你的系统是64位的那就一路NEXT默认安装就好，但是如果你的系统是
 32位的，那么很有可能会遇到下面的问题,下面给出解决方案：
+
 ```
 都是针对执行studio.bat出现错误导致android studio运行不起来，最后都是异工同曲：
 

@@ -1,6 +1,8 @@
 ---
 layout: post
 title: Android HTTPS SSL双向验证
+tags: [https ssl]
+categories: [android]
 ---
 >由于公司项目需要，为了保证服务器数据安全，保证接口不暴露给第三方，要求我们客户端接口全部采用HTTPS的SSL验证请求，所以才有了以下这篇博客的介绍。
 
@@ -31,7 +33,7 @@ title: Android HTTPS SSL双向验证
 ##三、生成密钥库和证书
 >可参考以下密钥生成脚本，根据实际情况做必要的修改，其中需要注意的是：服务端的密钥库参数“CN”必须与服务端的IP地址相同，否则会报错，客户端的任意。
 
-```java
+{% highlight ruby %}
 1、生成服务器证书库
 
 keytool -validity 365 -genkey -v -alias server -keyalg RSA -keystore D:\ssl\server.keystore -dname "CN=127.0.0.1,OU=rongyiwang,O=rongyiwang,L=Shanghai,ST=Shanghai,c=cn" -storepass 123456 -keypass 123456
@@ -59,7 +61,8 @@ keytool -import -v -alias client -file D:\ssl\client.cer -keystore D:\ssl\server
 7、查看证书库中的全部证书
 
 keytool -list -keystore D:\ssl\server.keystore -storepass 123456
-```
+{% endhighlight %}
+
 >通过上面的步骤生成的证书，客户端需要用到的是**client.p12**(客户端证书，用于请求的时候给服务器来验证身份之用)和**client.truststore**(客户端证书库，用于验证服务器端身份，防止钓鱼)这两个文件.
 
 以下只给出Android端的请求，具体服务器端的配置可以参考这篇博客-->[Java Tomcat SSL 服务端/客户端双向认证（一）](http://www.blogjava.net/icewee/archive/2012/06/04/379947.html)
@@ -67,7 +70,8 @@ keytool -list -keystore D:\ssl\server.keystore -storepass 123456
 >一般客户端验证SSL有两种方式，一种是通过SSLSocketFactory方式创建，需要设置域名及端口号(适应于HttpClient请求方式)，一种是通过SSLContext方式创建(适用于HttpsURLConnection请求方式).
 
 1、下面给出SslSocketFactory方式进行SSL认证的客户端代码
-```java
+
+{% highlight ruby %}
 	private static final String KEY_STORE_TYPE_BKS = "bks";//证书类型 固定值
     private static final String KEY_STORE_TYPE_P12 = "PKCS12";//证书类型 固定值
 
@@ -131,12 +135,11 @@ keytool -list -keystore D:\ssl\server.keystore -storepass 123456
         }
         return httpsClient;
     }
-```
+{% endhighlight %}
 
 2、下面给出SSLContext方式进行SSL认证的客户端代码
 
-```java
-
+{% highlight ruby %}
 	private static final String KEY_STORE_TYPE_BKS = "bks";//证书类型 固定值
     private static final String KEY_STORE_TYPE_P12 = "PKCS12";//证书类型 固定值
 
@@ -232,7 +235,7 @@ keytool -list -keystore D:\ssl\server.keystore -storepass 123456
         }
         return connection;
     }
-```
+{% endhighlight %}
 
 这里还没有给出Webview进行HTTPS请求的方式，正在研究中，后续有了再来更新，这里需要注意一下的就是SSLContext的**默认端口是443端口，这点需要注意一下**。
 

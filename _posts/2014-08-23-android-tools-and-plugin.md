@@ -1,6 +1,8 @@
 ---
 layout: post
 title: Android好用且常用的插件及工具
+tags: [plugin]
+categories: [tools]
 ---
 
 1、[GitHub](https://github.com/),这个不管是做安卓还是其他，只要是开发就必上的网站，也是天朝没有墙掉为数不多的网站
