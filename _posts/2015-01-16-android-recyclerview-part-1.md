@@ -1,17 +1,17 @@
 ---
 layout: post
 title: RecyclerView使用详解（一）
-tags: [tools]
+tags: [view]
 categories: [android]
 ---
 ##一、前言
 RecyclerView是谷歌V7包下新增的控件,用来替代ListView的使用,在RecyclerView标准化了ViewHolder类似于ListView中convertView用来做视图缓.
 
 先来说说RecyclerView的有点就是,他可以通过设置LayoutManager来快速实现listview、gridview、瀑布流的效果，而且还可以设置横向和纵向显示，添加动画效果也非常简单(自带了ItemAnimation，可以设置加载和移除时的动画，方便做出各种动态浏览的效果),也是官方推荐使用的.以下是官方的说明:
-```
-RecyclerView is a more advanced and flexible version of ListView. This widget is a container for large sets of views that can be recycled and scrolled very efficiently. Use the RecyclerView widget when you have lists with elements that change dynamically.
-```
-简单说就是当你需要动态展示一组数据的时候就会需要用到它。
+
+>RecyclerView is a more advanced and flexible version of ListView. This widget is a container for large sets of views that can be recycled and scrolled very efficiently. Use the RecyclerView widget when you have lists with elements that change dynamically.
+>简单说就是当你需要动态展示一组数据的时候就会需要用到它。
+
 讲了这么多虚的，接下来我们看看在代码中怎么来实现.
 
 ##二、实现
@@ -34,7 +34,7 @@ compile 'com.android.support:recyclerview-v7:21.0.3'
     android:layout_height="match_parent"
     android:id="@+id/recycler_view"
     android:layout_centerVertical="true"
-    android:layout_centerHorizontal="true"></android>
+    android:layout_centerHorizontal="true"/>
     
 {% endhighlight %}
 
@@ -53,7 +53,7 @@ public class MainActivity extends ActionBarActivity {
         ButterKnife.inject(this);
 
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));//这里用线性显示 类似于listview
-        //        mRecyclerView.setLayoutManager(new GridLayoutManager(this, 2));//这里用线性宫格显示 类似于grid view
+//        mRecyclerView.setLayoutManager(new GridLayoutManager(this, 2));//这里用线性宫格显示 类似于grid view
 //        mRecyclerView.setLayoutManager(new StaggeredGridLayoutManager(2, OrientationHelper.VERTICAL));//这里用线性宫格显示 类似于瀑布流
         mRecyclerView.setAdapter(new NormalRecyclerViewAdapter(this));
     }
