@@ -137,7 +137,8 @@ GridLayoutManager样式
 
 ![](https://raw.githubusercontent.com/Frank-Zhu/AndroidRecyclerViewDemo/master/art/normal_1.png)
 
-最后给出代码下载地址-->[Demo](https://github.com/Frank-Zhu/AndroidRecyclerViewDemo)
 
+最后给出代码下载地址-->[Demo Code](https://github.com/Frank-Zhu/AndroidRecyclerViewDemo)
 
+[RecyclerView使用详解（二）](http://frank-zhu.github.io/android/2015/02/25/android-recyclerview-part-2/)
 
