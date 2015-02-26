@@ -142,3 +142,5 @@ GridLayoutManager样式
 
 [RecyclerView使用详解（二）](http://frank-zhu.github.io/android/2015/02/25/android-recyclerview-part-2/)
 
+[RecyclerView使用详解（三）](http://frank-zhu.github.io/android/2015/02/26/android-recyclerview-part-3/)
+

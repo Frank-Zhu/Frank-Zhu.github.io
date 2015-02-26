@@ -123,3 +123,5 @@ categories: [android]
 最后给出代码下载地址-->[Demo Code](https://github.com/Frank-Zhu/AndroidRecyclerViewDemo)
 
 [RecyclerView使用详解（一）](http://frank-zhu.github.io/android/2015/01/16/android-recyclerview-part-1/)
+
+[RecyclerView使用详解（三）](http://frank-zhu.github.io/android/2015/02/26/android-recyclerview-part-3/)

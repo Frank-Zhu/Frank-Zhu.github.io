@@ -104,7 +104,7 @@ RecyclerView本身就已经实现了ITEM的动画，只需要调用以下几个�
 
 {% highlight ruby %}
 
-     notifyItemChanged(int)
+     	notifyItemChanged(int)
      notifyItemInserted(int)
      notifyItemRemoved(int)
      notifyItemRangeChanged(int, int)
@@ -113,7 +113,7 @@ RecyclerView本身就已经实现了ITEM的动画，只需要调用以下几个�
 
 {% endhighlight %}
 
-怎么样，是不是很轻松，如果你不满足系统默认动画，那么你可以自定义实现**RecyclerView.ItemAnimator**的接口方法，实现代码可以参考[DefaultItemAnimator](https://android.googlesource.com/platform/frameworks/support/+/refs/heads/master/v7/recyclerview/src/android/support/v7/widget/DefaultItemAnimator.java).当然，如果你不想自己实现，那么也没关系，这里有人已经写了开源库，你可以去看看[recyclerview-animators](https://github.com/wasabeef/recyclerview-animators)
+怎么样，是不是很轻松，如果你不满足系统默认动画，那么你可以自定义实现**RecyclerView.ItemAnimator**的接口方法，实现代码可以参考[DefaultItemAnimator](https://android.googlesource.com/platform/frameworks/support/+/refs/heads/master/v7/recyclerview/src/android/support/v7/widget/DefaultItemAnimator.java).当然，如果你不想自己实现，那么也没关系，这里有人已经写了开源库，你可以去看看[recyclerview-animators](https://github.com/wasabeef/recyclerview-animators),这里给出默认动画实现方式代码[AnimFragment](https://github.com/Frank-Zhu/AndroidRecyclerViewDemo/blob/master/app/src/main/java/com/frankzhu/recyclerviewdemo/fragment/AnimFragment.java)
 
 ##三、嵌套RecycleView
 
