@@ -65,6 +65,8 @@ keytool -list -keystore D:\ssl\server.keystore -storepass 123456
 
 >通过上面的步骤生成的证书，客户端需要用到的是**client.p12**(客户端证书，用于请求的时候给服务器来验证身份之用)和**client.truststore**(客户端证书库，用于验证服务器端身份，防止钓鱼)这两个文件.
 
+其中安卓端的证书类型必须要求是BKS类型，具体生成可以参考这个[create a bks bouncycastle](http://stackoverflow.com/questions/4065379/how-to-create-a-bks-bouncycastle-format-java-keystore-that-contains-a-client-c),这里涉及到这个JAR[bcprov-ext-jdk15on-152.jar](http://www.bouncycastle.org/latest_releases.html)文件.
+
 以下只给出Android端的请求，具体服务器端的配置可以参考这篇博客-->[Java Tomcat SSL 服务端/客户端双向认证（一）](http://www.blogjava.net/icewee/archive/2012/06/04/379947.html)
 ##四、Android端SSL认证请求
 >一般客户端验证SSL有两种方式，一种是通过SSLSocketFactory方式创建，需要设置域名及端口号(适应于HttpClient请求方式)，一种是通过SSLContext方式创建(适用于HttpsURLConnection请求方式).
