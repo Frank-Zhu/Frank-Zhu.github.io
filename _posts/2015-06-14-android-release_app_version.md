@@ -73,7 +73,7 @@ allprojects {
     }
 }
 
-{% highlight ruby %}
+{% endhighlight %}
 
 其中**com.android.tools.build:gradle:1.0.0**即为Gradle插件的版本。
 
@@ -112,7 +112,7 @@ dependencies {
     compile 'com.android.support:recyclerview-v7:21.0.3'
 }
 
-{% highlight ruby %}
+{% endhighlight %}
 
 当然你也有可能看到的不太一样，但主体应该是一致的，上面的部分缺少签名的代码，这个具体的你们开发一般会写好代码，你只需要执行一下命令即可。
 
