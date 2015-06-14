@@ -23,7 +23,7 @@ RecyclerView是谷歌V7包下新增的控件,用来替代ListView的使用,在Re
 compile 'com.android.support:cardview-v7:21.0.3'
 compile 'com.android.support:recyclerview-v7:21.0.3'
 
-{% highlight ruby %}
+{% endhighlight %}
 
 然后是在XML文件用使用它
 
