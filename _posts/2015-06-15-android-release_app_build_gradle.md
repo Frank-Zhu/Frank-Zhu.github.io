@@ -133,7 +133,7 @@ productFlavors {
 {% endhighlight %}
 
 按照上面两步即可编译打多渠道包了，命令是**gradle assembleRelease**，可以打包所有的多渠道包，通过下面这张图可以看到gradle可以执行的task。
-![](https://github.com/Frank-Zhu/Frank-Zhu.github.io/blob/master/img/android_release_app_build_gradle/1.png)
+![](https://raw.githubusercontent.com/Frank-Zhu/Frank-Zhu.github.io/master/img/android_release_app_build_gradle/1.png)
 
 如果只是想打单渠道包，则执行相应的task即可，如**gradle assemblePalyStoreRelease**就是打PlayStore渠道的Release版本。
 
