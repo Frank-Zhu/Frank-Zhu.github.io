@@ -122,4 +122,4 @@ dependencies {
 
 以上
 
-关于build.gradle文件编写，请参考下一篇博客内容[安卓集成发布详解（二）](),主要包括签名文件处理及多渠道版本编译知识
+关于build.gradle文件编写，请参考下一篇博客内容[安卓集成发布详解（二）](http://frank-zhu.github.io/android/2015/06/15/android-release_app_build_gradle/),主要包括签名文件处理及多渠道版本编译知识
