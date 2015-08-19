@@ -34,7 +34,7 @@ categories: [android]
 
 {% highlight ruby %}
 
-	mWebView.loadUrl("javascript：test()");// 调用js函数无参数
+		mWebView.loadUrl("javascript：test()");// 调用js函数无参数
 
 	mWebView.loadUrl("javascript：test(test)"); //test是js的函数test()的参数
 
@@ -57,11 +57,13 @@ JS调用APP的方法也比较简单，只要添加JavascriptInterface方法接�
 
 **@JavascriptInterface**
 
+重要的事情说三遍
+
 像这样
 
 {% highlight ruby %}
 
-	// 如果target 大于等于API 17，则需要加上如下注解
+		// 如果target 大于等于API 17，则需要加上如下注解
     @JavascriptInterface
     public void showToast(String toast) {
         LogUtils.d(TAG, "toast = " + toast);
@@ -78,9 +80,11 @@ JS调用APP的方法也比较简单，只要添加JavascriptInterface方法接�
 **mWebSettings.setDomStorageEnabled(true);**
 **mWebSettings.setDomStorageEnabled(true);**
 
+重要的事情说三遍
+
 {% highlight ruby %}
 
-       mWebSettings.setDomStorageEnabled(true);
+       		mWebSettings.setDomStorageEnabled(true);
        mWebSettings.setDatabaseEnabled(true);
        mWebSettings.setAppCacheEnabled(true);
        String appCachePath = getApplicationContext().getCacheDir().getAbsolutePath();
@@ -94,7 +98,7 @@ JS调用APP的方法也比较简单，只要添加JavascriptInterface方法接�
 
 {% highlight ruby %}
 
-	<uses-permission android:name="android.permission.INTERNET"/>
+		<uses-permission android:name="android.permission.INTERNET"/>
 	<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
 	<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
 
@@ -104,7 +108,7 @@ JS调用APP的方法也比较简单，只要添加JavascriptInterface方法接�
 
 {% highlight ruby %}
 
-	@Override
+		@Override
     public void onReceivedIcon(WebView view, Bitmap icon) {
         super.onReceivedIcon(view, icon);
     }
@@ -132,7 +136,7 @@ html中的**_bank**标签就是新建窗口，在处理多窗口的时候需要�
 
 {% highlight ruby %}
 
-	mWebSettings.setSupportMultipleWindows(true);
+		mWebSettings.setSupportMultipleWindows(true);
 	mWebSettings.setJavaScriptCanOpenWindowsAutomatically(true);
 
 {% endhighlight %}
@@ -141,7 +145,7 @@ html中的**_bank**标签就是新建窗口，在处理多窗口的时候需要�
 
 {% highlight ruby %}
 
-	@Override
+		@Override
     public boolean onCreateWindow(WebView view, boolean isDialog,
                                   boolean isUserGesture, Message resultMsg) {
         WebView.WebViewTransport transport = (WebView.WebViewTransport) resultMsg.obj;
@@ -156,7 +160,7 @@ html中的**_bank**标签就是新建窗口，在处理多窗口的时候需要�
 
 {% highlight ruby %}
 
-	@Override
+		@Override
     public boolean shouldOverrideUrlLoading(WebView view, String url) {
         view.loadUrl(url);
         return true;
@@ -169,7 +173,7 @@ html中的**_bank**标签就是新建窗口，在处理多窗口的时候需要�
 
 {% highlight ruby %}
 
-	private void getWebData() {
+		private void getWebData() {
         new Thread() {
             @Override
             public void run() {
@@ -202,11 +206,32 @@ html中的**_bank**标签就是新建窗口，在处理多窗口的时候需要�
 
 4)WebView进行HTTPS加密加载（这个坑貌似我还没解决，用的上面的第三种方法绕过去了）
 
+5)JS调用安卓接口传输JSON格式数据
+这个真是个大坑，以前一直没啥问题，直接传字符串数据结构就过来了，安卓也能直接解析，但是最近遇到安卓这边接受到数据死活不对，总是undefined值，也就是传输出问题了，后来反复排查才发现，需要对JSON数据字符串进行转义传输，不然就解析不到，也是无语了，例子如下
+
+{% highlight ruby %}
+	
+	"
+	{
+		"title":"test title"
+	}
+	"
+
+	以前传这种字符串过来是可以正常解析的，也不知道发什么神经，突然不行了，必须做转义之后传这种才可以解析
+
+	"
+	{
+		\"title\":\"test title\"
+	}
+	"
+
+{% endhighlight %}
+
 目前好像就遇到这些，等再遇到了再来更新吧，下面给出全部的配置
 
 {% highlight ruby %}
 
-	private void setUpViewComponent() {
+		private void setUpViewComponent() {
         WebSettings mWebSettings = mWebView.getSettings();
         mWebSettings.setSupportZoom(true);
         mWebSettings.setLoadWithOverviewMode(true);
