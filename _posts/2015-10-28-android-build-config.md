@@ -22,6 +22,7 @@ categories: [android]
 3.然后右键计算机->属性->高级系统设置 在弹出的菜单中切换到高级页面，点击环境变量,在弹出的菜单中点击底部系统变量一栏的新建按钮，在变量名一栏中填写**JAVA_HOME**,在变量值一栏中填写你上面的安装路径，比如我的就是**C:\Program Files\Java\jdk1.7.0_51**填完之后点击确定，然后在系统变量一栏找到一个叫**Path**的变量名，双击打开编辑，把下面这行加载变量值的最后**;%JAVA_JDK_HOME%\bin;** 然后点确定保存一下，注意前后的**;号**注意前后的**;号**注意前后的**;号**重要的事情说三遍
 
 4.验证一下你的环境是不是配置好了，首先启动命令行，输入以下命令**java -version**，看是否有如下信息输出,如果能看到正确的版本信息，那就说你的环境配置没有问题
+
 ```java
 C:\Users\rongyi>java -version
 
@@ -36,6 +37,7 @@ Java HotSpot(TM) 64-Bit Server VM (build 24.51-b03, mixed mode)
 1)先去官网下载一下SDK安装器，傻瓜式的，下载好之后点击安装即可
 
 2)安装好之后，到安装目录下的tools目录，点击android.bat脚本启动Android SDK Manager工具，由于众所周知的原因，这个更新在国内很慢，所以你需要设置一下腾讯的开源代理，步骤如下：
+
 >1.启动 Android SDK Manager ，打开主界面，依次选择『Tools』、『Options...』，弹出『Android SDK Manager - Settings』窗口；
 
 >2.在『Android SDK Manager - Settings』窗口中，在『HTTP Proxy Server』和『HTTP Proxy Port』输入框内填入 android-mirror.bugly.qq.com 镜像服务器地址(不包含http://，如下图)和端口8080，并且选中『Force https://... sources to be fetched using http://...』复选框。设置完成后单击『Close』按钮关闭『Android SDK Manager - Settings』窗口返回到主界面；
@@ -49,6 +51,7 @@ Java HotSpot(TM) 64-Bit Server VM (build 24.51-b03, mixed mode)
 3.右键计算机->属性->高级系统设置 在弹出的菜单中切换到高级页面，点击环境变量,在弹出的菜单中点击底部系统变量一栏的新建按钮，在变量名一栏中填写**ANDROID_HOME**,在变量值一栏中填写你上面的安装路径，比如我的就是**D:\Android\sdk**填完之后点击确定，然后在系统变量一栏找到一个叫**Path**的变量名，双击打开编辑，把下面这行加载变量值的最后**;%ANDROID_HOME%\tools;%ANDROID_HOME%\platform-tools;** 然后点确定保存一下，注意前后的**;号**注意前后的**;号**注意前后的**;号**重要的事情说三遍
 
 4.验证一下你的环境是不是配置好了，首先启动命令行，输入以下命令**adb version**，看是否有如下信息输出,如果能看到正确的版本信息，那就说你的环境配置没有问题
+
 ```java
 C:\Users\rongyi>adb version
 
@@ -119,9 +122,9 @@ Total time: 20.109 secs
 :app:package_216Release
 :app:zipalign_216Release
 :app:assemble_216Release
-```
 
->BUILD SUCCESSFUL
+BUILD SUCCESSFUL
+```
 
 4)解释一下上面的命令行一，首先**a**是简写，**_216**是渠道号，因为gradle渠道不支持数字开头，所以会加上下划线开始，后面的**R**是Release的简写，整个意思拼起来就是编译216环境下的Release包。
 
@@ -272,6 +275,7 @@ _216 {
             buildConfigField "String", "API_SHARE_HOST", "\"http://192.168.1.216/app\""//分享API地址
         }
 ```
+
 没错，如果你要添加新的渠道包，就新增一个这个结构就可以了，然后改一下名字，你就可以执行下马这个命令了，比如修改为_225,那么就可以执行**gradle a_225R**命令来打包225环境的包了，是不是很简单，对，其实我说的都是废话，就这样吧。一定要记得改**API_HOST**字段对应的值啊，不然到时候问我说为啥API地址没变，我是不会承认的啊～
 
 好了，终于可以摆脱频繁打包了，以后你们自己打包吧，对了，这个是不是也可以直接给运营的人用啊，好像是的。
