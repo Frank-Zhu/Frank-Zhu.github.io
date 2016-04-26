@@ -5,7 +5,6 @@ tags: [android]
 categories: [android]
 ---
 
-# Android项目基础规范
 
 #### 代码管理
 
@@ -33,7 +32,7 @@ categories: [android]
 
 1. 代码中变量的命名遵照驼峰命名法。
 
-2. 布局文件中的控件命名尽量使用控件缩写做前缀，如 TextView 简写为tv_xx，Imageview 简写为 iv_xx。（不强求，有统一的风格即可）
+2. 布局文件中的控件命名尽量使用控件缩写做前缀，如 TextView 简写为tv\_xx，Imageview 简写为 iv\_xx。（不强求，有统一的风格即可）
 
 3. 图片资源命名规范如下：
 
@@ -71,7 +70,7 @@ categories: [android]
 6. 页面涉及 ViewPager 的，可以使用 FZBaseViewPagerAdapter 来设置适配器，其中的 Fragment 需要继承 FZBaseViewPagerFragment 来实现懒加载，不要一次把全部页面的数据都加载出来，切记！！！
 7. RecycleView 的 view holder 需要继承 FZBaseViewHolder 来实现，在绑定数据的时候直接调用 bindViewData 即可。 
 8. 其它相应的工具类在 appbaselibrary 模块中，有些有包含的可以直接使用，没有包含的如果是可以通用的直接在模块中添加即可，否则在主项目中添加。
-9. 数据模型中，如果没有需求需要页面级别传递数据的话，不需要实现数据的序列化（Parcelable ／ Serializable）。
+9. 数据模型中，如果没有需求需要页面级别传递数据的话，不需要实现数据的序列化（Parcelable / Serializable）。
 10. 其它欢迎补充。
 
 
