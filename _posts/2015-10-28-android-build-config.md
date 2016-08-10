@@ -8,6 +8,7 @@ categories: [android]
 ##第一步当然是安装工具及配置环境
 
 ###代码管理工具安装
+
 1.代码拉取工具可以到以下地址安装[SourceTree](https://www.sourcetreeapp.com/)
 
 2.下载之后默认安装就可以了，可能需要免费注册一下，不然会有使用期限限制
@@ -15,6 +16,7 @@ categories: [android]
 3.在安装的时候你可能还需要[GIT](https://git-scm.com/downloads)工具,下载安装一下即可
 
 ###JAVA环境安装
+
 1.[JDK1.8下载地址64位](thunder://QUFodHRwOi8vZG93bmxvYWQub3JhY2xlLmNvbS9vdG4tcHViL2phdmEvamRrLzh1NjUtYjE3L2pkay04dTY1LXdpbmRvd3MteDY0LmV4ZVpa/)，你也可以在[这里](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)下载你对应的系统版本
 
 2.下载之后安装好JDK到你的电脑，假如路径是这个**C:\Program Files\Java\jdk1.7.0_51**这个路径可能不一样，下面的配置换成你自己的就可以
@@ -23,15 +25,16 @@ categories: [android]
 
 4.验证一下你的环境是不是配置好了，首先启动命令行，输入以下命令**java -version**，看是否有如下信息输出,如果能看到正确的版本信息，那就说你的环境配置没有问题
 
-```java
+{% highlight ruby %}
 C:\Users\rongyi>java -version
 
 java version "1.7.0_51"
 Java(TM) SE Runtime Environment (build 1.7.0_51-b13)
 Java HotSpot(TM) 64-Bit Server VM (build 24.51-b03, mixed mode)
-```
+{% endhighlight %}
 
 ###Android SDK 环境安装
+
 1.这个文件有点大，我单独通过讨论组发给你们，如果没有保存接收的，可以直接找我要一下即可。当然，如果你比较喜欢折腾，那你可以自己安装一下步骤如下
 
 1)先去官网下载一下SDK安装器，傻瓜式的，下载好之后点击安装即可
@@ -52,11 +55,13 @@ Java HotSpot(TM) 64-Bit Server VM (build 24.51-b03, mixed mode)
 
 4.验证一下你的环境是不是配置好了，首先启动命令行，输入以下命令**adb version**，看是否有如下信息输出,如果能看到正确的版本信息，那就说你的环境配置没有问题
 
-```java
+{% highlight ruby %}
+
 C:\Users\rongyi>adb version
 
 Android Debug Bridge version 1.0.29
-```
+
+{% endhighlight %}
 
 ###Gradle环境配置
 1.[Gradle下载](thunder://QUFodHRwczovL3NlcnZpY2VzLmdyYWRsZS5vcmcvZGlzdHJpYnV0aW9ucy9ncmFkbGUtMi44LWFsbC56aXBaWg==/)也可以在[官网下载](http://gradle.org/gradle-download/)
@@ -67,7 +72,8 @@ Android Debug Bridge version 1.0.29
 
 4.验证一下环境变量配置
 
-```java
+{% highlight ruby %}
+
 C:\Users\rongyi>gradle -v
 Gradle 2.2.1
 
@@ -79,7 +85,8 @@ Groovy:       2.3.6
 Ant:          Apache Ant(TM) version 1.9.3 compiled on >December 23 2013
 JVM:          1.7.0_51 (Oracle Corporation 24.51-b03)
 OS:           Windows 7 6.1 amd64
-```
+
+{% endhighlight %}
 
 ##环境搞好了第二步当然是拉取对应分支的代码
 
@@ -99,7 +106,8 @@ OS:           Windows 7 6.1 amd64
 
 2)然后执行一下命令 **gradle clean**清除一下编译信息,看到下面的信息就算成功了
 
-```java
+{% highlight ruby %}
+
 D:\Android\Code\MallLife>gradle clean
 :ActionItemBadgeLlibrary:clean
 :AndroidTreeView:clean
@@ -107,11 +115,13 @@ D:\Android\Code\MallLife>gradle clean
 :multi-image-selector:clean
 BUILD SUCCESSFUL
 Total time: 20.109 secs
-```
+
+{% endhighlight %}
 
 3)然后执行**gradle a_216R**,之后就等着吧，这个时间有点长，等看到下面的信息之后，就编译成功了。
 
-```java
+{% highlight ruby %}
+
 :app:shrink_216ReleaseMultiDexComponents
 :app:create_216ReleaseMainDexClassList
 :app:retrace_216ReleaseMainDexClassList
@@ -124,7 +134,8 @@ Total time: 20.109 secs
 :app:assemble_216Release
 
 BUILD SUCCESSFUL
-```
+
+{% endhighlight %}
 
 4)解释一下上面的命令行一，首先**a**是简写，**_216**是渠道号，因为gradle渠道不支持数字开头，所以会加上下划线开始，后面的**R**是Release的简写，整个意思拼起来就是编译216环境下的Release包。
 
@@ -137,7 +148,8 @@ BUILD SUCCESSFUL
 
 好了，下面就告诉你怎么来使用黑魔法，首先在项目目录下的app目录找到一个叫build.gradle的文件，打开它，他大概长这个样子
 
-```java
+{% highlight ruby %}
+
 defaultConfig {
         applicationId "com.rongyi.rongyiguang"
         minSdkVersion Integer.parseInt(MIN_SDK_VERSION)
@@ -265,16 +277,18 @@ defaultConfig {
         }
     }
     
-```
+{% endhighlight %}
 
 这个只是一部分，你需要关心的东西在这里
 
-```java
+{% highlight ruby %}
+
 _216 {
             buildConfigField "String", "API_HOST", "\"https://192.168.1.216\""//服务器Api Host
             buildConfigField "String", "API_SHARE_HOST", "\"http://192.168.1.216/app\""//分享API地址
         }
-```
+
+{% endhighlight %}
 
 没错，如果你要添加新的渠道包，就新增一个这个结构就可以了，然后改一下名字，你就可以执行下马这个命令了，比如修改为_225,那么就可以执行**gradle a_225R**命令来打包225环境的包了，是不是很简单，对，其实我说的都是废话，就这样吧。一定要记得改**API_HOST**字段对应的值啊，不然到时候问我说为啥API地址没变，我是不会承认的啊～
 

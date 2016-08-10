@@ -25,7 +25,7 @@ github:
   repo:           https://github.com/Frank-Zhu/Frank-Zhu.github.io
 
 # gems:
-  # - jekyll-sitemap
+   - jekyll-sitemap
 
 kramdown:
   # Enable GitHub Flavored Markdown (fenced code blocks)
