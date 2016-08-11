@@ -7,7 +7,9 @@ categories: [android]
 
 ##第一步当然是安装工具及配置环境
 
+
 ###代码管理工具安装
+
 
 1.代码拉取工具可以到以下地址安装[SourceTree](https://www.sourcetreeapp.com/)
 
@@ -16,6 +18,7 @@ categories: [android]
 3.在安装的时候你可能还需要[GIT](https://git-scm.com/downloads)工具,下载安装一下即可
 
 ###JAVA环境安装
+
 
 1.[JDK1.8下载地址64位](thunder://QUFodHRwOi8vZG93bmxvYWQub3JhY2xlLmNvbS9vdG4tcHViL2phdmEvamRrLzh1NjUtYjE3L2pkay04dTY1LXdpbmRvd3MteDY0LmV4ZVpa/)，你也可以在[这里](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)下载你对应的系统版本
 
@@ -33,7 +36,9 @@ Java(TM) SE Runtime Environment (build 1.7.0_51-b13)
 Java HotSpot(TM) 64-Bit Server VM (build 24.51-b03, mixed mode)
 {% endhighlight %}
 
+
 ###Android SDK 环境安装
+
 
 1.这个文件有点大，我单独通过讨论组发给你们，如果没有保存接收的，可以直接找我要一下即可。当然，如果你比较喜欢折腾，那你可以自己安装一下步骤如下
 

@@ -33,6 +33,7 @@ categories: [tools]
 ### 基础介绍
 
 ---
+
 ### 1. Git 与 SVN 区别点
 
 - GIT 是分布式的，SVN 不是。这是 GIT 和其它非分布式的版本控制系统，例如 SVN，CVS 等，最核心的区别。
@@ -67,41 +68,41 @@ categories: [tools]
 
    * 创建 本地/服务器 git 仓库文件夹，名为：**`learngit` **
 
-     ![创建本地仓库示意图01](https://bytebucket.org/Frank-Zhu/learngit/raw/bfbcad16234df9d8f2c8069cd9e7c1d9f1aef051/01.png?token=5fb51403c519f77706e4e90c54896f1e5ab79755)
+     ![创建本地仓库示意图01](https://github.com/Frank-Zhu/Frank-Zhu.github.io/blob/master/img/git/01.png?raw=true)
 
-     ![创建服务器仓库示意图02](https://bytebucket.org/Frank-Zhu/learngit/raw/bfbcad16234df9d8f2c8069cd9e7c1d9f1aef051/02.png?token=0f9a9ef907c94d7abb695504b3eb4a1877c0b4a4)
+     ![创建服务器仓库示意图02](https://github.com/Frank-Zhu/Frank-Zhu.github.io/blob/master/img/git/02.png?raw=true)
 
 2. 添加文件 **`git add 文件全名包括后缀`** 
 
    - 将文件添加到暂存区，已添加到暂存区的文件会在`已暂存文件`区域显示，且文件会变成绿色，未暂存的文件会在 `未暂存的文件` 区域显示，如果要把未暂存的文件添加到已暂存文件直接点下前面的勾选框即可。
 
-     ![添加文件示意图03](https://bytebucket.org/Frank-Zhu/learngit/raw/0b1b2887b5a981dff60dc0f34ccc4a57a9678947/03.png?token=6b8a79d8c3b42e121812bdb4621a10793e220cce)
+     ![添加文件示意图03](https://github.com/Frank-Zhu/Frank-Zhu.github.io/blob/master/img/git/03.png?raw=true)
 
 3. 提交文件 **`git commit -m "commit message"`**
 
    - 将已缓存的文件提交到本地仓库并填写本次提交信息log
 
-     ![提交文件示意图04](https://bytebucket.org/Frank-Zhu/learngit/raw/0b1b2887b5a981dff60dc0f34ccc4a57a9678947/04.png?token=42102db1cd151923373b2293dbde9ed681a9446a)
+     ![提交文件示意图04](https://github.com/Frank-Zhu/Frank-Zhu.github.io/blob/master/img/git/04.png?raw=true)
 
 4. 关联远程仓库 **`git remote add origin xxx.git`**
 
    - 将本地仓库于远程服务器仓库关联
 
-     ![关联远程仓库示意图05](https://bytebucket.org/Frank-Zhu/learngit/raw/bfbcad16234df9d8f2c8069cd9e7c1d9f1aef051/05.png?token=e35ed21f35d5f579ae57c5b1ba18e8aad9b27982)
+     ![关联远程仓库示意图05](https://github.com/Frank-Zhu/Frank-Zhu.github.io/blob/master/img/git/05.png?raw=true)
 
-     ![关联远程仓库示意图06](https://bytebucket.org/Frank-Zhu/learngit/raw/bfbcad16234df9d8f2c8069cd9e7c1d9f1aef051/06.png?token=3d6a04a8bbf58d8862a9e96ad0c5dcfe17e211c3)
+     ![关联远程仓库示意图06](https://github.com/Frank-Zhu/Frank-Zhu.github.io/blob/master/img/git/06.png?raw=true)
 
 5. 推送文件  **`git push -u origin master`** 
 
    - 将本地的修改提交推送到远程服务器仓库
 
-     ![本地提交推送到服务器示意图07](https://bytebucket.org/Frank-Zhu/learngit/raw/bfbcad16234df9d8f2c8069cd9e7c1d9f1aef051/07.png?token=03d789ff0a41c037c1350ca6ca2de5439b5144c0)
+     ![本地提交推送到服务器示意图07](https://github.com/Frank-Zhu/Frank-Zhu.github.io/blob/master/img/git/07.png?raw=true)
 
 6. 拉取服务器提交 **`git pull origin master`**
 
    - 将服务器上别人的提交拉取到本地
 
-     ![拉取服务器提交示意图08](https://bytebucket.org/Frank-Zhu/learngit/raw/0115b91523ba71f0f12f44eaa14ca144ed457153/08.png)
+     ![拉取服务器提交示意图08](https://github.com/Frank-Zhu/Frank-Zhu.github.io/blob/master/img/git/08.png?raw=true)
 
 
 ### 进阶
@@ -112,7 +113,7 @@ categories: [tools]
 
    * 分支创建 **`git branch 分支名`** 
 
-     ![分支创建示意图09](https://bytebucket.org/Frank-Zhu/learngit/raw/0115b91523ba71f0f12f44eaa14ca144ed457153/09.png)
+     ![分支创建示意图09](https://github.com/Frank-Zhu/Frank-Zhu.github.io/blob/master/img/git/09.png?raw=true)
 
    * 分支切换 **`git checkout 分支名`**
 
@@ -122,33 +123,33 @@ categories: [tools]
 
      选中某个分支可以看到分支所有记录
 
-     ![分支查看示意图10](https://bytebucket.org/Frank-Zhu/learngit/raw/0115b91523ba71f0f12f44eaa14ca144ed457153/10.png)
+     ![分支查看示意图10](https://github.com/Frank-Zhu/Frank-Zhu.github.io/blob/master/img/git/10.png?raw=true)
 
    * 分支提交 
 
      分支上的代码提交和上面的一样处理即可，没什么区别。分支的推送也很简单，和代码的推送类似
 
-     ![分支推送示意图11](https://bytebucket.org/Frank-Zhu/learngit/raw/0115b91523ba71f0f12f44eaa14ca144ed457153/11.png)
+     ![分支推送示意图11](https://github.com/Frank-Zhu/Frank-Zhu.github.io/blob/master/img/git/11.png?raw=true)
 
    * 分支合并 **`git merge 分支名`**
 
      当我们分支上的功能开发完毕之后，需要将分支的内容合并到主分支，这个时候可以这么处理
 
-     ![分支合并示意图12](https://bytebucket.org/Frank-Zhu/learngit/raw/0115b91523ba71f0f12f44eaa14ca144ed457153/12.png)
+     ![分支合并示意图12](https://github.com/Frank-Zhu/Frank-Zhu.github.io/blob/master/img/git/12.png?raw=true)
 
    * 分支删除 **`git branch -d 分支名`**
 
      当分支合并完之后，分支就可以删除了，只需要切换到别的分支，然后选中要删除的分支右键，选择删除分支即可，弹出框中有 **`强制删除`** 选项，对应的命令是 **`git branch -D 分支名`** 当分支无法删除时可以选择强制删除选项删除即可。
 
-     ![删除分支示意图13](https://bytebucket.org/Frank-Zhu/learngit/raw/0115b91523ba71f0f12f44eaa14ca144ed457153/13.png)
+     ![删除分支示意图13](https://github.com/Frank-Zhu/Frank-Zhu.github.io/blob/master/img/git/13.png?raw=true)
 
 2. 合并冲突解决
 
    当多人协作工作时，可能会有更改到相同文件的情况，这样就有可能会有冲突需要处理。当然，我们应该在工作分配时尽量避免多人负责一个模块的情况来避免不必要的代码冲突，当冲突不可避免时，我们就需要来处理冲突，这个时候就要祭出  **`BeyondCompare`** 这个合并神器。我们右键选中需要解决冲突的文件，弹出的菜单中选择其它合并工具即可。
 
-   ![合并冲突示意图14](https://bytebucket.org/Frank-Zhu/learngit/raw/0115b91523ba71f0f12f44eaa14ca144ed457153/14.png)
+   ![合并冲突示意图14](https://github.com/Frank-Zhu/Frank-Zhu.github.io/blob/master/img/git/14.png?raw=true)
 
-   ![合并冲突示意图15](https://bytebucket.org/Frank-Zhu/learngit/raw/0115b91523ba71f0f12f44eaa14ca144ed457153/15.png)
+   ![合并冲突示意图15](https://github.com/Frank-Zhu/Frank-Zhu.github.io/blob/master/img/git/15.png?raw=true)
 
 3. 后悔药 **`git reset HEAD`** **`get reset --hard 提交记录`** **`git revert 提交记录`**
 
@@ -156,21 +157,21 @@ categories: [tools]
 
      在代码未提交时想丢弃本次修改，重新开始开发时可能会用到这个。这种也是最简单的，直接选中需要撤销的文件，右键选择重置菜单即可。
 
-     ![文件撤销示意图16](https://bytebucket.org/Frank-Zhu/learngit/raw/0115b91523ba71f0f12f44eaa14ca144ed457153/16.png)
+     ![文件撤销示意图16](https://github.com/Frank-Zhu/Frank-Zhu.github.io/blob/master/img/git/16.png?raw=true)
 
    - 已提交
 
      当代码已提交到本地分支，但是还没有推送到服务器仓库时，想回退掉提交，这个时候就可以使用 **`get reset --hard 提交记录`** 命令来回退提交。
 
-     ![已提交记录重置示意图17](https://bytebucket.org/Frank-Zhu/learngit/raw/0115b91523ba71f0f12f44eaa14ca144ed457153/17.png)
+     ![已提交记录重置示意图17](https://github.com/Frank-Zhu/Frank-Zhu.github.io/blob/master/img/git/17.png?raw=true)
 
-     ![重置完成示意图18](https://bytebucket.org/Frank-Zhu/learngit/raw/0115b91523ba71f0f12f44eaa14ca144ed457153/18.png)
+     ![重置完成示意图18](https://github.com/Frank-Zhu/Frank-Zhu.github.io/blob/master/img/git/18.png?raw=true)
 
    - 已推送
 
      有时候我们可能脑抽，不小心把错误代码提交了，不止是提交到了本地，还手残的给点了推送同步到了服务器，这个时候事情就大了，我们需要赶紧把这条记录给回退掉，这个时候，我们选中我们需要回滚的的记录，右键点击 **`提交回滚`** 菜单，然后弹窗窗口点击确定，这个时候，我们可以看到代码被回滚了，但是git上有了一条记录就是 **`Revert xxxxx`** 还需要推送到服务器，这个就是有后遗症的，别人是可以看到你的回滚记录的，所以，下次提交的时候一定要注意，要仔细检查好。
 
-     ![回滚提交示意图19](https://bytebucket.org/Frank-Zhu/learngit/raw/0115b91523ba71f0f12f44eaa14ca144ed457153/19.png)
+     ![回滚提交示意图19](https://github.com/Frank-Zhu/Frank-Zhu.github.io/blob/master/img/git/19.png?raw=true)
 
 4. 合并补丁 patch
 
@@ -180,23 +181,23 @@ categories: [tools]
 
      生成补丁可以使用上面两种命令行形式生成，但是我们有 IDE 啊，当然要无脑操作嘛。生成也很简单，首先选择任意一条记录，点击右键 **`创建补丁`** 菜单，然后在弹出的菜单中选择我们需要生成 patch 的提交记录，注意这里只能选择连续的几条记录来生成 patch ，如果我是要不连续的几条记录怎么办呢？生成多个 patch 就可以了。
 
-     ![生成补丁示意图20](https://bytebucket.org/Frank-Zhu/learngit/raw/0115b91523ba71f0f12f44eaa14ca144ed457153/20.png)
+     ![生成补丁示意图20](https://github.com/Frank-Zhu/Frank-Zhu.github.io/blob/master/img/git/20.png?raw=true)
 
    - 合并补丁 **`git apply 补丁文件`** **`git am 补丁文件`**
 
      补丁合并用上面两个命令即可，这里要注意一下区别，用 **`am`** 命令时合并补丁时是有保持原来的提交日志的，而用 **`apply`** 则是没有原来提交日志的，这里一般建议是直接用 **`am`**  命令来处理补丁合并。
 
-     ![合并补丁示意图21](https://bytebucket.org/Frank-Zhu/learngit/raw/0115b91523ba71f0f12f44eaa14ca144ed457153/21.png)
+     ![合并补丁示意图21](https://github.com/Frank-Zhu/Frank-Zhu.github.io/blob/master/img/git/21.png?raw=true)
 
-     ![合并补丁示意图22](https://bytebucket.org/Frank-Zhu/learngit/raw/0115b91523ba71f0f12f44eaa14ca144ed457153/22.png)
+     ![合并补丁示意图22](https://github.com/Frank-Zhu/Frank-Zhu.github.io/blob/master/img/git/22.png?raw=true)
 
 5. 贮藏
 
    这个比较简单了，不过应用的场景还是挺多的，比如，我们在开发功能的时候，代码还没开发完不能提交，但是又有一个很紧急的 bug 需要修复，这个时候我们就需要把我们未开发完的代码先贮藏起来，保证不影响紧急 bug 的修复，等修复完了，然后再应用贮藏的内容继续完成功能的开发。
 
-   ![贮藏示意图23](https://bytebucket.org/Frank-Zhu/learngit/raw/0115b91523ba71f0f12f44eaa14ca144ed457153/23.png)
+   ![贮藏示意图23](https://github.com/Frank-Zhu/Frank-Zhu.github.io/blob/master/img/git/23.png?raw=true)
 
-   ![恢复贮藏文件示意图](https://bytebucket.org/Frank-Zhu/learngit/raw/0115b91523ba71f0f12f44eaa14ca144ed457153/24.png)
+   ![恢复贮藏文件示意图](https://github.com/Frank-Zhu/Frank-Zhu.github.io/blob/master/img/git/24.png?raw=true)
 
 ### 高阶玩法(后续填坑)
 
