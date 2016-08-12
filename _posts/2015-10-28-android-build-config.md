@@ -5,6 +5,7 @@ tags: [build]
 categories: [android]
 ---
 
+
 ##第一步当然是安装工具及配置环境
 
 
@@ -16,6 +17,7 @@ categories: [android]
 2.下载之后默认安装就可以了，可能需要免费注册一下，不然会有使用期限限制
 
 3.在安装的时候你可能还需要[GIT](https://git-scm.com/downloads)工具,下载安装一下即可
+
 
 ###JAVA环境安装
 

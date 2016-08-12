@@ -16,7 +16,7 @@ comments: true
   
 </div>
 
-{% if page.comments %}
+<!-- {% if page.comments %}
 <section class="post-comments">
   <div id="disqus_thread"></div>
   <script type="text/javascript">
@@ -31,7 +31,7 @@ comments: true
   <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
   <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 </section>
-{% endif %}
+{% endif %} -->
 
 <div class="related">
   <h2>Related Posts</h2>
@@ -44,3 +44,21 @@ comments: true
     {% endfor %}
   </ul>
 </div>
+
+<section class="post-comments">
+  <!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="{{ page.id}}" data-title="{{ page.title }}" data-url="{{ page.url }}"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"frank-zhu"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
