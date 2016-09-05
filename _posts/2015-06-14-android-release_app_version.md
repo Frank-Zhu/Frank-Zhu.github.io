@@ -7,7 +7,7 @@ categories: [android]
 
 鉴于公司项目需要由专人维护APP版本的发布，所以需要搭建专门用于版本发布的环境，下面就来介绍发布环境的搭建（Gradle构建部分，ant构建部分参见这篇博客[Ant版本发布](http://frank-zhu.github.io/android/2014/05/23/android-ant/)）。
 
-##一、软件准备
+## 一、软件准备
 
 1.[Gradle](http://gradle.org/downloads/)可能需要翻墙，这里有墙内下载地址[百度网盘下载](http://pan.baidu.com/s/1hqja0fU)
 
@@ -17,7 +17,7 @@ categories: [android]
 
 4.[SourceTree](https://www.sourcetreeapp.com/download/)我们代码是用GIT管理，如果你们的代码是用SVN管理，则自己下载相应的客户端工具.
 
-##二、软件安装
+## 二、软件安装
 1）Gradle的安装只需要将上面下载的全部文件解压到任意目录待用，之后将这个地址下的**bin**文件夹路径加到对应的环境变量，之后在命令行运行**gradle -version**命令查看当前gradle的版本号，如果能够正确输出版本号则为成功。
 >WIN7下环境变量添加方法，我的电脑→属性→高级系统属性设置→高级→环境变量，先新建一个用户变量**GRADLE_HOME**填入你上面解压的路径，之后在系统**PATH**变量下添加**GRADLE_HOME/bin;**确定保存即可，重启命令行，然后运行**gradle -version**命令查看当前gradle的版本号.
 >MAC下添加环境变量方法请自行谷歌，主要就是在**~/.bash_profile**文件添加相应路径即可，一定要注意路径不要填错了。
@@ -40,7 +40,7 @@ categories: [android]
 
 重要的事情说三遍
 
-##三、版本编译
+## 三、版本编译
 如果上面的软件都安装成功了，那接下来就是代码拉取和版本编译了。
 
 1)代码拉取

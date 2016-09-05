@@ -7,7 +7,7 @@ categories: [android]
 
 在上一篇（[RecyclerView使用详解（一）](http://frank-zhu.github.io/android/2015/01/16/android-recyclerview-part-1/)）文章中简单的介绍了RecyclerView的基本用法，接下来要来讲讲RecyclerView的更多用法，要实现不同的功能效果，大部分都还是在于RecyclerView的Adapter写法，所以我们着重来看看几种不同功能的Adapter写法。
 
-##一、多Item布局实现(MultipleItem)
+## 一、多Item布局实现(MultipleItem)
 
 如果之前你用过ListView实现过此功能，那么你一定对下面这两个方法并不陌生
 
@@ -113,7 +113,7 @@ categories: [android]
 
 怎么样，是不是很简单，没错，就是这么简单，但是只要会了这个多Item，那么你就可以做出很多效果了，比如HeaderView和BottomView也是可以通过这种方式来实现的。([HeaderView Adapter](https://github.com/Frank-Zhu/AndroidRecyclerViewDemo/blob/master/app/src/main/java/com/frankzhu/recyclerviewdemo/adapter/HeaderBottomItemAdapter.java))
 
-##二、效果图如下：
+## 二、效果图如下：
 
 ![](https://raw.githubusercontent.com/Frank-Zhu/AndroidRecyclerViewDemo/master/art/multiple_item_1.png)
 

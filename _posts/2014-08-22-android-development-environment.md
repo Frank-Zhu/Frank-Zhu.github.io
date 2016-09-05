@@ -5,7 +5,7 @@ tags: [tools]
 categories: [android]
 ---
 
-##一、 介绍
+## 一、 介绍
 
 ------
 Android Studio是Google新发布的Android应用程序开发环境，Android Studio是基于IntelliJ IDEA开发而成的。在Android Studio开发环境中，Android开发者可以非常方便地调试Android应用程序，Android Studio不仅是Android开发的IDE集成环境，而且还有以下特点：
@@ -22,7 +22,7 @@ Android Studio是Google新发布的Android应用程序开发环境，Android Stu
 
 - **功能强大的布局编辑器** ：可以让你拖拉 UI控件并进行效果预览
 
-##二、文件准备
+## 二、文件准备
 
 
 1、[Android Studio下载安装](http://developer.android.com/sdk/installing/studio.html)可以去官网下载最新版本，现在是V0.8.6(注意选择适合自己的系统版本X86/64位)
@@ -33,7 +33,7 @@ Android Studio是Google新发布的Android应用程序开发环境，Android Stu
 >在天朝想使用谷歌的服务，你懂得！所以一把好用的梯子会事半功倍，特别是对于第一次启动AndroidStudio的时候，等会你就直到有个好的梯子是多么的重要。什么，你说再哪里找梯子，这种问题不要问我，问了我也不会告诉你的~~~
 
 
-##三、软件安装
+## 三、软件安装
 
 1、先把之前下载好的JDK软件默认安装，一路NEXT，直到完成
 
@@ -65,7 +65,7 @@ IF EXIST "%JRE%\lib\i386" SET BITS=32
 SET BITS=   改为 SET BITS=32
 ```
 
-##四、新建HelloWorld工程
+## 四、新建HelloWorld工程
 1、双击AS，打开软件，启动之后你会看到以下界面
 
 ---------

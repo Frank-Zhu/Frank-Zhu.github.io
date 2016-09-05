@@ -7,7 +7,7 @@ categories: [android]
 
 上一篇主要讲了安卓版本编译版本发布的过程，本篇主要写版本编译脚本的实现，包括签名文件处理及多渠道版本编译。[安卓集成发布详解（一）](http://frank-zhu.github.io/android/2015/06/14/android-release_app_version/)
 
-##一、签名部分编写
+## 一、签名部分编写
 gradle本身支持直接签名，只需要在releas部分添加如下代码即可
 
 {% highlight ruby %}
@@ -91,7 +91,7 @@ if (propFile.exists()) {
 
 以上就是签名部分代码，是不是很简单😊
 
-##二、多渠道打包
+## 二、多渠道打包
 gradle的多渠道打包很简单，因为gradle已经帮我们做好了很多基础功能。下面以友盟统计为例说明（貌似只要是讲多渠道打包都离不开友盟这货😊）
 
 一般友盟统计在AndroidManifest.xml里面会有这么一段声明
@@ -169,7 +169,7 @@ applicationVariants.all { variant ->
 
 PS:此方法有一定局限性，就是渠道包多了之后编译花费的时间会很长，这里推荐[美团打包](http://tech.meituan.com/mt-apk-packaging.html)的第三种方法。
 
-##三、buildConfigField自定义配置
+## 三、buildConfigField自定义配置
 大家可能会遇到下面这种情况，就是Beta版本服务器和Release版本服务器通常不在一台服务器上，而测试希望可以同时发布两个服务器的版本用于测试，这个时候我们就需要修改代码，然后一个一个老老实实的发包，次数少还可以，但是间隔时间短而且服务器还多的情况下就不那么爽了（坑爹了这是），所以下面主要介绍**buildConfigField**配合多渠道打不同服务器版本的方法。
 
 其实用法很简单,首先在相应的节点加上定义，比如
@@ -187,7 +187,7 @@ buildConfigField "boolean", "LOG_DEBUG", "true"//是否输出LOG信息
 
 然后在代码中通过**BuildConfig.LOG_DEBUG**或者**BuildConfig.API_HOST**调用即可，是不是很简单，不过虽然简单，但是功能很强大，可以扩展很多不同的应用场景，比如可以定义测试和正式版本的微信分享APPID等等，就不一一列举了，自己去尝试扩展成自己的场景吧。
 
-##四、dex突破65535的限制
+## 四、dex突破65535的限制
 大家都知道随着项目的一天天变大，慢慢的都会遇到单个dex最多65535个方法数的瓶颈，如果是ANT构建的项目就会比较麻烦，但是Gradle已经帮我们处理好了，而添加的方法也很简单，总共就分三步
 1)首先是在defaultConfig节点使能多DEX功能
 

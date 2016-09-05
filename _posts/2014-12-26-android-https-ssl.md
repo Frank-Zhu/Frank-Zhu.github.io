@@ -4,9 +4,10 @@ title: Android HTTPS SSL双向验证
 tags: [https ssl]
 categories: [android]
 ---
+
 >由于公司项目需要，为了保证服务器数据安全，保证接口不暴露给第三方，要求我们客户端接口全部采用HTTPS的SSL验证请求，所以才有了以下这篇博客的介绍。
 
-##一、HTTPS和HTTP的区别
+## 一、HTTPS和HTTP的区别
 	1、https协议需要到ca申请证书，一般免费证书很少，需要交费。
 
 	2、http是超文本传输协议，信息是明文传输，https 则是具有安全性的ssl加密传输协议。
@@ -15,7 +16,7 @@ categories: [android]
 
 	4、http的连接很简单，是无状态的；HTTPS协议是由SSL+HTTP协议构建的可进行加密传输、身份认证的网络协议，比http协议安全。
 
-##二、SSL功能
+## 二、SSL功能
 	1)客户对服务器的身份认证:
 	SSL服务器允许客户的浏览器使用标准的公钥加密技术和一些可靠的认证中心（CA）的证书，来确认服务器的合法性。
 
@@ -30,7 +31,7 @@ categories: [android]
 
 >SSL握手协议（SSL Handshake Protocol）：它建立在SSL记录协议之上，用于在实际的数据传输开始前，通讯双方进行身份认证、协商加密算法、交换加密密钥等。
 
-##三、生成密钥库和证书
+## 三、生成密钥库和证书
 >可参考以下密钥生成脚本，根据实际情况做必要的修改，其中需要注意的是：服务端的密钥库参数“CN”必须与服务端的IP地址相同，否则会报错，客户端的任意。
 
 {% highlight ruby %}
@@ -68,7 +69,7 @@ keytool -list -keystore D:\ssl\server.keystore -storepass 123456
 其中安卓端的证书类型必须要求是BKS类型，具体生成可以参考这个[create a bks bouncycastle](http://stackoverflow.com/questions/4065379/how-to-create-a-bks-bouncycastle-format-java-keystore-that-contains-a-client-c),这里涉及到这个JAR[bcprov-ext-jdk15on-152.jar](http://www.bouncycastle.org/latest_releases.html)文件.
 
 以下只给出Android端的请求，具体服务器端的配置可以参考这篇博客-->[Java Tomcat SSL 服务端/客户端双向认证（一）](http://www.blogjava.net/icewee/archive/2012/06/04/379947.html)
-##四、Android端SSL认证请求
+## 四、Android端SSL认证请求
 >一般客户端验证SSL有两种方式，一种是通过SSLSocketFactory方式创建，需要设置域名及端口号(适应于HttpClient请求方式)，一种是通过SSLContext方式创建(适用于HttpsURLConnection请求方式).
 
 1、下面给出SslSocketFactory方式进行SSL认证的客户端代码

@@ -6,10 +6,10 @@ categories: [android]
 ---
 
 
-##第一步当然是安装工具及配置环境
+## 第一步当然是安装工具及配置环境
 
 
-###代码管理工具安装
+### 代码管理工具安装
 
 
 1.代码拉取工具可以到以下地址安装[SourceTree](https://www.sourcetreeapp.com/)
@@ -19,7 +19,7 @@ categories: [android]
 3.在安装的时候你可能还需要[GIT](https://git-scm.com/downloads)工具,下载安装一下即可
 
 
-###JAVA环境安装
+### JAVA环境安装
 
 
 1.[JDK1.8下载地址64位](thunder://QUFodHRwOi8vZG93bmxvYWQub3JhY2xlLmNvbS9vdG4tcHViL2phdmEvamRrLzh1NjUtYjE3L2pkay04dTY1LXdpbmRvd3MteDY0LmV4ZVpa/)，你也可以在[这里](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)下载你对应的系统版本
@@ -39,7 +39,7 @@ Java HotSpot(TM) 64-Bit Server VM (build 24.51-b03, mixed mode)
 {% endhighlight %}
 
 
-###Android SDK 环境安装
+### Android SDK 环境安装
 
 
 1.这个文件有点大，我单独通过讨论组发给你们，如果没有保存接收的，可以直接找我要一下即可。当然，如果你比较喜欢折腾，那你可以自己安装一下步骤如下
@@ -70,7 +70,7 @@ Android Debug Bridge version 1.0.29
 
 {% endhighlight %}
 
-###Gradle环境配置
+### Gradle环境配置
 1.[Gradle下载](thunder://QUFodHRwczovL3NlcnZpY2VzLmdyYWRsZS5vcmcvZGlzdHJpYnV0aW9ucy9ncmFkbGUtMi44LWFsbC56aXBaWg==/)也可以在[官网下载](http://gradle.org/gradle-download/)
 
 2.下载解压到一个路径地址即可，不需要安装
@@ -95,7 +95,7 @@ OS:           Windows 7 6.1 amd64
 
 {% endhighlight %}
 
-##环境搞好了第二步当然是拉取对应分支的代码
+## 环境搞好了第二步当然是拉取对应分支的代码
 
 1.代码地址[MallLife](https://bitbucket.org/rongyiwang/malllife)
 [MallShop](https://bitbucket.org/rongyiwang/cmssellers)

@@ -5,7 +5,7 @@ tags: [code]
 categories: [android]
 ---
 
-###安卓APP代码架构搭建
+### 安卓APP代码架构搭建
 搞安卓开发两年了，一直都想整理一份自己平时开发用得到的代码作为其他项目开发的基础架构，之前也整理过一份，但是碍于自己当时技术的短板，那份代码已经有点落后了，所以今天还是重新整理一份相对合理一点的代码备份下，如果你对之前的版本感兴趣可以点这里--->[AndroidAppCodeFramework](https://github.com/Frank-Zhu/AndroidAppCodeFramework)
 * * *
 新的代码结构我会采用如下开源库

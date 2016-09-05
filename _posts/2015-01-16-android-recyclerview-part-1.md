@@ -4,7 +4,8 @@ title: RecyclerView使用详解（一）
 tags: [view]
 categories: [android]
 ---
-##一、前言
+
+## 一、前言
 RecyclerView是谷歌V7包下新增的控件,用来替代ListView的使用,在RecyclerView标准化了ViewHolder类似于ListView中convertView用来做视图缓.
 
 先来说说RecyclerView的有点就是,他可以通过设置LayoutManager来快速实现listview、gridview、瀑布流的效果，而且还可以设置横向和纵向显示，添加动画效果也非常简单(自带了ItemAnimation，可以设置加载和移除时的动画，方便做出各种动态浏览的效果),也是官方推荐使用的.以下是官方的说明:
@@ -14,7 +15,7 @@ RecyclerView是谷歌V7包下新增的控件,用来替代ListView的使用,在Re
 
 讲了这么多虚的，接下来我们看看在代码中怎么来实现.
 
-##二、实现
+## 二、实现
 
 首先要用这个控件，你需要在gradle文件中添加包的引用（配合官方CardView使用）
 
@@ -126,7 +127,7 @@ public class NormalRecyclerViewAdapter extends RecyclerView.Adapter<NormalRecycl
 
 {% endhighlight %}
 
-##三、效果图
+## 三、效果图
 
 
 LinearLayoutManager样式

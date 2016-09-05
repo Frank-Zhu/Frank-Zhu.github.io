@@ -7,7 +7,7 @@ categories: [android]
 
 在上一篇（[RecyclerView使用详解（二）](http://frank-zhu.github.io/android/2015/02/25/android-recyclerview-part-2/)）文章中介绍了RecyclerView的多Item布局实现，接下来要来讲讲RecyclerView的Cursor实现，相较于之前的实现，Cursor有更多的使用场景，也更加的常用，特别是配合LoaderManager和CursorLoader进行数据的缓存及加载显示，基于此我们来重点看看RecyclerView的CursorAdapter具体要怎么实现。
 
-##一、CursorAdapter实现(配合LoaderManager和CursorLoader)
+## 一、CursorAdapter实现(配合LoaderManager和CursorLoader)
 
 如果之前你用过ListView实现过此功能(CursorAdapter)，那么你一定对下面这两个方法并不陌生
 
@@ -99,7 +99,7 @@ categories: [android]
 
 怎么样，是不是很简单，没错，就是这么简单，这里是完整的[BaseAbstractRecycleCursorAdapter](https://github.com/Frank-Zhu/AndroidRecyclerViewDemo/blob/master/app/src/main/java/com/frankzhu/recyclerviewdemo/adapter/BaseAbstractRecycleCursorAdapter.java)代码,用法和ListView的CursorAdapter用法一致，具体的可以看看我的[Recyclerview LoaderManager Provider](https://github.com/Frank-Zhu/AndroidRecyclerViewDemo/blob/master/app/src/main/java/com/frankzhu/recyclerviewdemo/fragment/ItemsFragment.java)
 
-##二、Item的动画实现
+## 二、Item的动画实现
 RecyclerView本身就已经实现了ITEM的动画，只需要调用以下几个函数来增删Item即可出现默认动画。
 
 {% highlight ruby %}
@@ -115,7 +115,7 @@ RecyclerView本身就已经实现了ITEM的动画，只需要调用以下几个�
 
 怎么样，是不是很轻松，如果你不满足系统默认动画，那么你可以自定义实现**RecyclerView.ItemAnimator**的接口方法，实现代码可以参考[DefaultItemAnimator](https://android.googlesource.com/platform/frameworks/support/+/refs/heads/master/v7/recyclerview/src/android/support/v7/widget/DefaultItemAnimator.java).当然，如果你不想自己实现，那么也没关系，这里有人已经写了开源库，你可以去看看[recyclerview-animators](https://github.com/wasabeef/recyclerview-animators),这里给出默认动画实现方式代码[AnimFragment](https://github.com/Frank-Zhu/AndroidRecyclerViewDemo/blob/master/app/src/main/java/com/frankzhu/recyclerviewdemo/fragment/AnimFragment.java)
 
-##三、嵌套RecycleView
+## 三、嵌套RecycleView
 
 一般是不推荐使用嵌套RecycleView的，和ListView是类似的，遇到这种需要嵌套的View一般都是想别的办法来规避，比如动态AddView，或者通过RecycleView的[MultipleItemAdapter](https://github.com/Frank-Zhu/AndroidRecyclerViewDemo/blob/master/app/src/main/java/com/frankzhu/recyclerviewdemo/adapter/MultipleItemAdapter.java)来实现，通过设置不同的ItemType布局不同的View，但是有时候会闲麻烦，想直接就用嵌套的方式来做，那么和ListView实现方式不同的是，ListView的实现一般都是继承ListView然后复写**onMeasure**方法，如下所示：
 
@@ -298,7 +298,7 @@ RecyclerView本身就已经实现了ITEM的动画，只需要调用以下几个�
 
 {% endhighlight %}
 
-##四、效果图如下：
+## 四、效果图如下：
 
 Item默认动画效果
 

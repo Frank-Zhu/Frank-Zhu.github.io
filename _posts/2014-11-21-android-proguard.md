@@ -5,7 +5,7 @@ tags: [proguard build]
 categories: [android]
 ---
 
-###ProGuard的常用语法
+### ProGuard的常用语法
 
 {% highlight ruby %}
 -libraryjars class_path 应用的依赖包，如android-support-v4
@@ -21,7 +21,7 @@ categories: [android]
 
 [proguard更多语法](http://proguard.sourceforge.net/index.html#manual/usage.html)
 
-###注意下列类不能进行混淆：
+### 注意下列类不能进行混淆：
 
 ```
     (1)、反射用到的类
@@ -29,7 +29,7 @@ categories: [android]
     (3)、Jni中调用的类
 ```
 
-###常用编写
+### 常用编写
 
 ```java
 # Obfuscation parameters:

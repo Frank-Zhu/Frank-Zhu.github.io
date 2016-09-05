@@ -7,7 +7,7 @@ categories: [Android]
 
 在没用AndroidStudio的Gradle构建项目之前，多渠道打包一般都是基于ANT构建，所以在此记录一下，以供查阅！
 
-###一、文件准备
+### 一、文件准备
 1、首先要去官网下载ANT代码。
 
 [ANT官网下载地址](http://ant.apache.org/bindownload.cgi)
@@ -21,7 +21,7 @@ categories: [Android]
 3、解压得到其中的ant-contrib-1.0b3.jar文件待用。
 >做完以上3步，ANT多渠道打包所需要的软件就准备完毕了，接下来就是环境配置了。
 
-###二、环境配置
+### 二、环境配置
 1、先将之前下载的ANT文件解压缩到任意文件路径，如**D:\Ant**目录
 
 2、配置以下环境变量

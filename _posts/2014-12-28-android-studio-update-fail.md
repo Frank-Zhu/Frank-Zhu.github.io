@@ -4,6 +4,7 @@ title: Android Studio 自动更新失败解决办法
 tags: [tools]
 categories: [others]
 ---
+
 更新了最新的AndroidStudio之后，每次点击IDE中的check update之后，总是提示说
 ```
 Connection failed. Please check your network connection and try again
