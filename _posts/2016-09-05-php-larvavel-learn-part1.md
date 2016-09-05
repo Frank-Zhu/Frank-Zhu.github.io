@@ -16,15 +16,25 @@ categories: [laravel5]
 ##基础命令
 
 `composer create-project laravel/laravel Larvavel5 `
+
 创建工程
+
 `php artisan key:generate`
+
 生成 AppKey
+
 `php -S localhost:8888 -t public`
+
 自己启动服务器
+
 `php artisan serve` 
+
 用内建部分启动服务器
+
 `php artisan make:controller 控制器名 `
+
 可以自动创建Controller文件
+
 
 ##视图传递变量
 
@@ -45,6 +55,7 @@ config 这个目录就是一些配置文件，都有注释
 安装完成之后在系统偏好设置的其它选项里面，点击MySQL的启动图标，然后点击**Start MySQL Server**按钮启动MySQL。
 
 ##定义MySQL别名
+
 {% highlight ruby %}
 
 
@@ -59,11 +70,16 @@ config 这个目录就是一些配置文件，都有注释
 
 
 ##设置MySQL账户密码
+
 `mysqladmin -u root -p password 新密码`
+
 这里会要求输入原来的 root 密码，输入完成之后即修改成功。
 
 ##连接MySQL数据库
+
 `mysql -u root -p`
+
 然后按提示输入 root 账户密码就可以连接上数据库了
 如果是登陆的远程主机上的数据库则用下面的命令
+
 `mysql -h 主机地址 -u 用户名 -p 用户密码`
