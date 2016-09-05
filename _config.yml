@@ -24,9 +24,10 @@ disqus_shortname: frank
 github:
   repo:           https://github.com/Frank-Zhu/Frank-Zhu.github.io
 
-# gems:
-#   - jekyll-sitemap
+gems:
+   - jekyll-sitemap
 
 kramdown:
   # Enable GitHub Flavored Markdown (fenced code blocks)
   input: GFM
+  syntax_highlighter: rouge
