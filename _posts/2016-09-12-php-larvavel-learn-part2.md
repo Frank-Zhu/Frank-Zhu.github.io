@@ -5,8 +5,6 @@ tags: [php]
 categories: [laravel5]
 ---
 
-
-
 [视频教程网址](https://laravist.com/series/laravel-5-basic)
 
 #### 数据库操作
@@ -22,11 +20,15 @@ Carbon 对象 的 diffForHumans() 可以输出格式化时间
 #### 表单验证
 Request 对象请求可以自定义规则做表单验证，其中 **authorize** 方法用于身份验证，**rules** 方法用于规则定义
 也可以直接在方法中用 **validate** 关键字处理
+
 ```$this->validate($request,['title'=>'required','content'=>'required']);```
+
 
 #### 数据绑定及路由注册
 **Route::resource** 可以自动注册 Controller 所有的路由
+
 ```Route::resource('articles','ArticlesController');```
+
 **Form::model** 可以绑定数据结构，自动填充内容显示
 **include** 标签引入布局文件，默认路径是 **views** 目录 
 
