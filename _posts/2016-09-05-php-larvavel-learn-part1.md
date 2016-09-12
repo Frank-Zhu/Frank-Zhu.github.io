@@ -44,10 +44,15 @@ compact 操作符 用法compact(‘first’,’last’),变量名去除**$**符�
 ### 目录结构
 
 app/Http/routes.php 这个文件下都是一些网站路由，加载一些视图给用户看
+
 app/Http/Controllers 这个目录就是页面的控制器
+
 resources/views 这个目录放的是一些页面的view文件
+
 resources/lang 这个目录是国家化的一些字符串文件
+
 config 这个目录就是一些配置文件，都有注释
+
 .env 是一些本地的配置文件，存放一些敏感信息，文件不会托管到git仓库
 
 ### 安装MySQL
