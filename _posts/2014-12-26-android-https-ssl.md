@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Android HTTPS SSL双向验证
+title: Android HTTPS SSL双向验证(自签名证书)
 tags: [https ssl]
 categories: [android]
 ---
@@ -53,7 +53,7 @@ keytool -export -v -alias server -keystore D:\ssl\server.keystore -storepass 123
 
 5、生成客户端信任证书库(由服务端证书生成的证书库)
 
-keytool -import -v -alias server -file D:\ssl\server.cer -keystore D:\ssl\client.truststore -storepass 123456
+keytool -import -v -alias server -file D:\ssl\server.cer -keystore D:\ssl\client.truststore -storepass 123456 -storetype BKS -provider org.bouncycastle.jce.provider.BouncyCastleProvider
 
 6、将客户端证书导入到服务器证书库(使得服务器信任客户端证书)
 
@@ -121,7 +121,7 @@ keytool -list -keystore D:\ssl\server.keystore -storepass 123456
         }
         return null;
     }
-    
+
     /**
      * 获取SSL认证需要的HttpClient
      *
@@ -150,7 +150,7 @@ keytool -list -keystore D:\ssl\server.keystore -storepass 123456
     private static final String KEY_STORE_TRUST_PATH = "client.truststore";//客户端验证服务器端的证书库
     private static final String KEY_STORE_PASSWORD = "123456";// 客户端证书密码
     private static final String KEY_STORE_TRUST_PASSWORD = "123456";//客户端证书库密码
-    
+
 	/**
      * 获取SSLContext
      *
@@ -193,7 +193,7 @@ keytool -list -keystore D:\ssl\server.keystore -storepass 123456
         }
         return null;
     }
-    
+
     /**
      * 获取SSL认证需要的HttpClient
      *
@@ -208,7 +208,7 @@ keytool -list -keystore D:\ssl\server.keystore -storepass 123456
         }
         return client;
     }
-    
+
     /**
      * 获取HttpsURLConnection
      *
