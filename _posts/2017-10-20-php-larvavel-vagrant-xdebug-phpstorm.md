@@ -1,5 +1,4 @@
 ---
-layout: post_default
 title: Vagrant+Homestead+xDebug+PhpStorm配置Laravel开发环境
 tags: [php]
 categories: [laravel5]
