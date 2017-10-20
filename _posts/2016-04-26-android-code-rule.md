@@ -11,11 +11,11 @@ categories: [android]
 1. Git 使用 rebase 命令来合并分支，尽量不要直接 merge 导致分支代码日志混乱。
 2. 开发新功能时，自己在本地创建 feature 分支开发，功能开发完毕之后，参照上面合并流程操作功能的合并，并删除本地分支，注意不要将本地分支推送到服务器。
 3. 平时开发只在 develop 分支和自己的本地分支操作，不要操作 master 和 release 分支，这两个分支只有在功能稳定上线的时候才进行合并操作。当线上版本出现紧急 bug 时，直接基于 master 分支拉取 hotfix 分支，解决 bug 之后再合并到其它各个分支。具体流程可以参见 [Git Flow 流程](http://nvie.com/posts/a-successful-git-branching-model/)
-4. git 提交日志尽量将注释缩减为一句话，不要包含详细的内容。
-   - Added ( 新加入的需求 )
+4. git 提交日志尽量将注释缩减为一句话，不需要包含非常详细的内容。
+   - Added ( 新加入的任务需求 )
    - Fixed ( 修复 bug 标注禅道的bug id 或者 bugtags 的 id)
-   - Changed ( 完成的任务 )
-   - Updated ( 完成的任务，或者由于第三方模块变化而做的变化 )
+   - Changed ( 修改的任务 )
+   - Updated ( 更新的任务，或者由于第三方模块变化而做的变化 )
 
 ### 代码编写规范
 
