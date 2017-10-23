@@ -6,23 +6,23 @@ highlighter:      rouge
 permalink:        pretty
 
 # Setup
-title:            Frank-Zhu
+title:            'Frank-Zhu'
 description:      '爱生活、爱分享、想做一个真正属于自己的APP'
-url:              http://frank-zhu.github.io/
-baseurl:          /
-logo:             /content/images/me.png
+url:              'http://frank-zhu.github.io'
+baseurl:          ''
+logo:             '/content/images/me.png'
 
 author:
   name:           'Frank Zhu'
-  url:            https://github.com/Frank-Zhu
-  email: 		  zhuwenwu2008@gmail.com
+  url:            'https://github.com/Frank-Zhu'
+  email: 		  'zhuwenwu2008@gmail.com'
 paginate:         5
 
 
 disqus_shortname: frank
 
 github:
-  repo:           https://github.com/Frank-Zhu/Frank-Zhu.github.io
+  repo:           'https://github.com/Frank-Zhu/Frank-Zhu.github.io'
 
 gems:
    - jekyll-sitemap
